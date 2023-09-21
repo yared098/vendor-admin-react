@@ -17,8 +17,8 @@ html.dark body {
 .card__title {
   font-weight: 600wp;
   text-align: center;
-  /* color:black; */
-  color: #524848;
+  color:black;
+  /* color: #e22323; */
   font-size: medium;
   color: var(--text-color);
 }

@@ -10,6 +10,7 @@ body {
   padding: 0;
   width: 1px;
   min-width: 100%;
+  background-color: var(--tg-theme-bg-color);
   
 
   --default-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';

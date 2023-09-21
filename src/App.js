@@ -5,6 +5,7 @@ import AddProduct from './pages/AddProduct';
 import ShowProducts from './pages/ShowProducts';
 import UpdateProductForm from './pages/UpdateProductForm';
 import "./pages/forms.css"
+import VendorRegisterForm from './pages/VendorRegisterForm';
 
 // const tele = window.Telegram.WebApp;
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/add" element={<AddProduct />} />
             <Route path="/" element={<ShowProducts />} />
             <Route path="/update" element={<UpdateProductForm />} />
+            <Route path ="/register" element={<VendorRegisterForm/>} />
           </Routes>
         </div>
 
@@ -62,6 +64,16 @@ function App() {
                   onClick={() => handleButtonClick('update')}
                 >
                   Update
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/register" className="nav-link">
+                <button
+                  className={`nav-button ${activeButton === 'update' ? 'active' : ''}`}
+                  onClick={() => handleButtonClick('update')}
+                >
+                  
                 </button>
               </Link>
             </li>

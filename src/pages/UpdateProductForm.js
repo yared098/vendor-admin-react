@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import bg from "../buregr.jpeg";
- import "../pages/forms.css";
- 
+import "../pages/forms.css";
+
 
 const UpdateProductForm = () => {
   const [productName, setProductName] = useState('');
+  const [productId, setProductId] = useState('');
   const [price, setPrice] = useState('');
   const [discount, setDiscount] = useState('');
 
@@ -21,7 +22,16 @@ const UpdateProductForm = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}style={{ backgroundColor: 'var(--tg-theme-bg-color)' }} >
+    <form onSubmit={handleFormSubmit} style={{ backgroundColor: 'var(--tg-theme-bg-color)' }} >
+      <div className="mb-3">
+        <label className="form-label">Product ID:</label>
+        <input
+          type="text"
+          className="form-control"
+          value={productId}
+          onChange={(e) => setProductId(e.target.value)}
+        />
+      </div>
       <div className="mb-3">
         <label className="form-label">Product Name:</label>
         <input
@@ -55,8 +65,8 @@ const UpdateProductForm = () => {
       <div className="mb-3">
         <label className="form-label">Product Image:</label>
         <div className="image__container">
-        <img src={bg} alt={""} />
-      </div>
+          <img src={bg} alt={""} />
+        </div>
       </div>
 
       <button type="submit" className="btn btn-primary">Update Product</button>

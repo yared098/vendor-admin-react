@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../pages/forms.css';
+import '../pages/register.css';
 
 const VendorRegisterForm = () => {
   const [companyName, setCompanyName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [telegram_id, setTelegram_id] = useState('');
+  const [postLimit, setPostLimit] = useState('');
+  const [date_created, setDate_created] = useState('');
   const [isRegistered, setIsRegistered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,15 +20,25 @@ const VendorRegisterForm = () => {
   const checkRegistrationStatus = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`https://neari.marketing/api/vendor/${0}`, {
-        // Add any necessary headers or parameters for your API request
+      const response = await axios.get(`https://negari.marketing/api/vendor/${2}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "*",
+          "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
+
+        },
       });
+      console.log(response.body);
+      console.log("this is response");
       if (response.status === 200) {
         setIsRegistered(true);
+      } else if(response.status===404) {
+        setIsRegistered(false);
       }
       setIsLoading(false);
     } catch (error) {
-      console.log('Error checking registration status:', error);
+      // console.log('Error checking registration status:', error);
       setIsLoading(false);
     }
   };
@@ -33,7 +46,7 @@ const VendorRegisterForm = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     // Perform vendor registration logic here
-    // You can access the entered values in the state variables (companyName, phone, email)
+    // You can access the entered values in the state variables (companyName, phone, email, telegram_id, postLimit, date_created)
 
     try {
       setIsLoading(true);
@@ -43,6 +56,9 @@ const VendorRegisterForm = () => {
         companyName,
         phone,
         email,
+        telegram_id,
+        postLimit,
+        date_created
       });
       setIsRegistered(true);
       setIsLoading(false);
@@ -67,7 +83,7 @@ const VendorRegisterForm = () => {
   }
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit}style={{ backgroundColor: 'var(--tg-theme-bg-color)' }} >
       <label>
         Company Name:
         <input
@@ -92,6 +108,33 @@ const VendorRegisterForm = () => {
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        />
+      </label>
+      <br />
+      <label>
+        Telegram ID:
+        <input
+          type="text"
+          value={telegram_id}
+          onChange={(e) => setTelegram_id(e.target.value)}
+        />
+      </label>
+      <br />
+      <label>
+        Post Limit:
+        <input
+          type="text"
+          value={postLimit}
+          onChange={(e) => setPostLimit(e.target.value)}
+        />
+      </label>
+      <br />
+      <label>
+        Date Created:
+        <input
+          type="text"
+          value={date_created}
+          onChange={(e) => setDate_created(e.target.value)}
         />
       </label>
       <br />

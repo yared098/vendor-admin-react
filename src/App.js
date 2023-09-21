@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes,Link, Route } from 'react-router-dom';
 import AddProduct from './pages/AddProduct';
 import ShowProducts from './pages/ShowProducts';
 
@@ -8,6 +8,19 @@ function App() {
     <>
       <Router>
         <div>
+        <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/">Show Products</Link>
+              </li>
+              <li>
+                <Link to="/add">Add Product</Link>
+              </li>
+            </ul>
+          </nav>
        
 
           <Routes>

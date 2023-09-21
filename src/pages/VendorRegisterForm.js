@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../pages/register.css';
+// import '../pages/register.css';
 
 const VendorRegisterForm = () => {
   const [companyName, setCompanyName] = useState('');

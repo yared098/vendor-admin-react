@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import bg from "../buregr.jpeg";
-import "../pages/forms.css"
+ import "../pages/forms.css";
+ 
 
 const UpdateProductForm = () => {
   const [productName, setProductName] = useState('');
@@ -20,7 +21,7 @@ const UpdateProductForm = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit}style={{ backgroundColor: 'var(--tg-theme-bg-color)' }} >
       <div className="mb-3">
         <label className="form-label">Product Name:</label>
         <input

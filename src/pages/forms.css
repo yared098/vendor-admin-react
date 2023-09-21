@@ -55,6 +55,9 @@ nav a:hover {
 }
 
 /* forms.css */
+.form {
+  background-color:  #0056b3;
+}
 
 .form-label {
   display: block;

@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <Router>
-        <div style={{ paddingBottom: '50px' }}>
+        <div style={{ paddingBottom: '1px' }}>
           <Routes>
             <Route path="/add" element={<AddProduct />} />
             <Route path="/" element={<ShowProducts />} />

@@ -31,7 +31,7 @@ function Card({ food, onAdd, onRemove }) {
       </h4>
 
       <div className="cafe-item-buttons">
-        <Button title= {count===0?" add ":"+"} type={"add"} onClick={handleIncrement} />
+        <Button title= {count===0?" edit ":"+"} type={"edit"} onClick={handleIncrement} />
         {count !== 0 ? (
           <Button title={"-"} type={"remove"} onClick={handleDecrement} />
         ) : (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import '../pages/register.css';
+import '../pages/register.css';
 
 const VendorRegisterForm = () => {
   const [companyName, setCompanyName] = useState('');
@@ -20,7 +20,7 @@ const VendorRegisterForm = () => {
   const checkRegistrationStatus = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`https://negari.marketing/api/vendor/${2}`, {
+      const response = await axios.get(`https://negari.marketing/api/vendor/te/${1}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",

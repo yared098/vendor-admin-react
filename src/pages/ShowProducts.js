@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "../App.css";
 import Card1 from "../Components/Card/Card1";
-// import Cart from "../Components/Cart/Cart";
+
 
 
 

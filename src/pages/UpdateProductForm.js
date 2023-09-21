@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import bg from "../buregr.jpeg";
 import "../pages/forms.css";
 
 
-const UpdateProductForm = () => {
+const UpdateProductForm = ({name,pricep}) => {
   const [productName, setProductName] = useState('');
   const [productId, setProductId] = useState('');
   const [price, setPrice] = useState('');
   const [discount, setDiscount] = useState('');
+
+  useEffect(() => {
+    // Set the initial values when the component mounts
+    setProductName(name);
+    setPrice(pricep);
+  }, [name, pricep]);
+
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

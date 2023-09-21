@@ -1,28 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Card.css";
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 
-function Card1({ food, onAdd, onRemove }) {
-  const [count, setCount] = useState(0);
-  const {  price ,image,name } = food;
+function Card1({ food }) {
+  const { price, image, name } = food;
+  const navigate = useNavigate();
 
-
-  const handleIncrement = () => {
-    setCount(count + 1);
-    onAdd(food);
-  };
-  const handleDecrement = () => {
-    setCount(count - 1);
-    onRemove(food);
+  const handleEdited = () => {
+    // Redirect to the update page and pass parameters
+    navigate(`/update?name=${name}&price=${price}`);
   };
 
   return (
     <div className="cafe-item js-item">
-      <span
-        className={`${count !== 0 ? "card__badge" : "card__badge--hidden"}`}
-      >
-        {count}
-      </span>
       <div className="image__container">
         <img src={image} alt={""} />
       </div>
@@ -31,12 +22,7 @@ function Card1({ food, onAdd, onRemove }) {
       </h4>
 
       <div className="cafe-item-buttons">
-        <Button title= {count===0?" add ":"+"} type={"Edit"} onClick={handleIncrement} />
-        {count !== 0 ? (
-          <Button title={"-"} type={"remove"} onClick={handleDecrement} />
-        ) : (
-          ""
-        )}
+        <Button title={"edit"} type={"edit"} onClick={handleEdited} />
       </div>
     </div>
   );

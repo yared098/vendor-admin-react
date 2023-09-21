@@ -33,7 +33,7 @@ function App() {
           </Routes>
         </div>
 
-        <nav style={{ borderRadius: '20px', position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#fff' }}>
+        <nav style={{ borderRadius: '2px', position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#fff' }}>
           <ul style={{ display: 'flex', justifyContent: 'space-around', listStyle: 'none', padding: 0 }}>
             <li>
               <Link to="/add" className="nav-link">
@@ -41,7 +41,7 @@ function App() {
                   className={`nav-button ${activeButton === 'add' ? 'active' : ''}`}
                   onClick={() => handleButtonClick('add')}
                 >
-                  Add Product
+                  Add 
                 </button>
               </Link>
             </li>
@@ -51,7 +51,7 @@ function App() {
                   className={`nav-button ${activeButton === 'products' ? 'active' : ''}`}
                   onClick={() => handleButtonClick('products')}
                 >
-                  My Products
+                  Products
                 </button>
               </Link>
             </li>

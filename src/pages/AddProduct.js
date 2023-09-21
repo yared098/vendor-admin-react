@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../pages/form.css"
+ import "../pages/forms.css"
 
 const AddProductForm = () => {
   const [name, setName] = useState("");

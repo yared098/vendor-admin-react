@@ -1,10 +1,19 @@
 import React from 'react';
+import {  useEffect } from "react";
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
 import AddProduct from './pages/AddProduct';
 import ShowProducts from './pages/ShowProducts';
 import UpdateProductForm from './pages/UpdateProductForm';
 
+// const tele = window.Telegram.WebApp;
+
 function App() {
+  useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tele = window.Telegram.WebApp;
+      tele.ready();
+    }
+  }, []);
   return (
     <>
       <Router>
@@ -19,13 +28,15 @@ function App() {
         <nav style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#f5f5f5' }}>
           <ul style={{ display: 'flex', justifyContent: 'space-around', listStyle: 'none', padding: 0 }}>
             <li>
+            <Link to="/add" className="nav-link nav-button">Add Product</Link>
+             
+            </li>
+            <li>
+              <Link to="/" className="nav-link">My products</Link>
+            </li>
+            <li>
+             
               <Link to="/update" className="nav-link">Update</Link>
-            </li>
-            <li>
-              <Link to="/" className="nav-link">Show Products</Link>
-            </li>
-            <li>
-              <Link to="/add" className="nav-link nav-button">Add Product</Link>
             </li>
           </ul>
         </nav>

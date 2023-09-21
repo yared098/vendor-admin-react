@@ -1,3 +1,58 @@
+.nav-button {
+  /* Your button styles */
+}
+
+.nav-button.active {
+  background-color: #ff0000; /* Replace with your desired background color */
+  /* Additional styles for the active button */
+}
+/* CSS for the navigation component */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #555;
+}
+
+.nav-button {
+  background-color: #929da8;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
+}
+
 /* forms.css */
 
 .form-label {

@@ -1,9 +1,10 @@
-import React from 'react';
-import {  useEffect } from "react";
+import React, { useState } from 'react';
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
 import AddProduct from './pages/AddProduct';
 import ShowProducts from './pages/ShowProducts';
 import UpdateProductForm from './pages/UpdateProductForm';
+import "./pages/forms.css"
 
 // const tele = window.Telegram.WebApp;
 
@@ -14,6 +15,13 @@ function App() {
       tele.ready();
     }
   }, []);
+
+  const [activeButton, setActiveButton] = useState('');
+
+  const handleButtonClick = (button) => {
+    setActiveButton(button);
+  };
+
   return (
     <>
       <Router>
@@ -21,22 +29,41 @@ function App() {
           <Routes>
             <Route path="/add" element={<AddProduct />} />
             <Route path="/" element={<ShowProducts />} />
-            <Route path="/update" element ={ <UpdateProductForm />}/>
+            <Route path="/update" element={<UpdateProductForm />} />
           </Routes>
         </div>
 
-        <nav style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#f5f5f5' }}>
+        <nav style={{ borderRadius: '20px', position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#fff' }}>
           <ul style={{ display: 'flex', justifyContent: 'space-around', listStyle: 'none', padding: 0 }}>
             <li>
-            <Link to="/add" className="nav-link nav-button">Add Product</Link>
-             
+              <Link to="/add" className="nav-link">
+                <button
+                  className={`nav-button ${activeButton === 'add' ? 'active' : ''}`}
+                  onClick={() => handleButtonClick('add')}
+                >
+                  Add Product
+                </button>
+              </Link>
             </li>
             <li>
-              <Link to="/" className="nav-link">My products</Link>
+              <Link to="/" className="nav-link">
+                <button
+                  className={`nav-button ${activeButton === 'products' ? 'active' : ''}`}
+                  onClick={() => handleButtonClick('products')}
+                >
+                  My Products
+                </button>
+              </Link>
             </li>
             <li>
-             
-              <Link to="/update" className="nav-link">Update</Link>
+              <Link to="/update" className="nav-link">
+                <button
+                  className={`nav-button ${activeButton === 'update' ? 'active' : ''}`}
+                  onClick={() => handleButtonClick('update')}
+                >
+                  Update
+                </button>
+              </Link>
             </li>
           </ul>
         </nav>

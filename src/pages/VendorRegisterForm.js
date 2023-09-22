@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../pages/register.css';
-import { useParams } from 'react-router-dom';
-const VendorRegisterForm = () => {
+// import { useParams } from 'react-router-dom';
+const VendorRegisterForm = ({ telegramId }) => {
   const [companyName, setCompanyName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -11,7 +11,7 @@ const VendorRegisterForm = () => {
   const [date_created, setDate_created] = useState('');
   const [isRegistered, setIsRegistered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { telegramId } = useParams();
+  // const { telegramId } = useParams();
 
   useEffect(() => {
     checkRegistrationStatus(telegramId);

@@ -23,7 +23,7 @@ const VendorRegisterForm = () => {
   }, []);
 
   useEffect(() => {
-    if (userIdd) {
+    if (!userIdd) {
       checkRegistrationStatus(userIdd);
     }
   }, [userIdd]);

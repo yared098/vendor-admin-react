@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
 import AddProduct from './pages/AddProduct';
 import ShowProducts from './pages/ShowProducts';
-import UpdateProductForm from './pages/UpdateProductForm';
+// import UpdateProductForm from './pages/UpdateProductForm';
 import "./pages/forms.css"
 import VendorRegisterForm from './pages/VendorRegisterForm';
 
 function App() {
-  //  const [userId, setUserId] = useState('');
+    // const [userId, setUserId] = useState('');
 
   useEffect(() => {
     // const queryParams = new URLSearchParams(window.location.search);
@@ -35,7 +35,7 @@ function App() {
           <Routes>
             <Route path="/add" element={<AddProduct />} />
             <Route path="/" element={<ShowProducts />} />
-            <Route path="/update" element={<UpdateProductForm />} />
+            {/* <Route path="/update" element={<UpdateProductForm />} /> */}
             <Route path ="/register" element={<VendorRegisterForm/>} />
             {/* <Route path="/register" element={() => <VendorRegisterForm userId={userId} />} /> */}
           </Routes>
@@ -63,7 +63,7 @@ function App() {
                 </button>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/update" className="nav-link">
                 <button
                   className={`nav-button ${activeButton === 'update' ? 'active' : ''}`}
@@ -72,14 +72,14 @@ function App() {
                   Update
                 </button>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/register" className="nav-link">
                 <button
                   className={`nav-button ${activeButton === 'register' ? 'active' : ''}`}
                   onClick={() => handleButtonClick('register')}
                 >
-                  +-
+                  Account
                 </button>
               </Link>
             </li>

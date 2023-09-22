@@ -79,7 +79,7 @@ function App() {
                   className={`nav-button ${activeButton === 'register' ? 'active' : ''}`}
                   onClick={() => handleButtonClick('register')}
                 >
-                  
+                  +
                 </button>
               </Link>
             </li>

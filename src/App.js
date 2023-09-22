@@ -47,7 +47,7 @@ function App() {
                   className={`nav-button ${activeButton === 'add' ? 'active' : ''}`}
                   onClick={() => handleButtonClick('add')}
                 >
-                  Add {userId}
+                   {userId}
                 </button>
               </Link>
             </li>

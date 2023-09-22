@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../pages/register.css';
-
+import { useParams } from 'react-router-dom';
 const VendorRegisterForm = () => {
-  // console.log(userId);
   const [companyName, setCompanyName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -12,21 +11,14 @@ const VendorRegisterForm = () => {
   const [date_created, setDate_created] = useState('');
   const [isRegistered, setIsRegistered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [userIdd, setUserId] = useState('');
-
-
-  useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const userId = queryParams.get('userId');
-    console.log(`User ID obtained from Telegram: ${userId}`);
-    setUserId(userId);
-  }, []);
+  const { telegramId } = useParams();
 
   useEffect(() => {
-    if (!userIdd) {
-      checkRegistrationStatus(userIdd);
-    }
-  }, [userIdd]);
+    checkRegistrationStatus(telegramId);
+    // if (telegramId) {
+    //   checkRegistrationStatus(telegramId);
+    // }
+  }, [telegramId]);
 
   const checkRegistrationStatus = async (userId) => {
     try {
@@ -66,7 +58,7 @@ const VendorRegisterForm = () => {
         companyName,
         phone,
         email,
-        telegram_id: userIdd,
+        telegram_id: telegramId,
         postLimit,
         date_created,
       });
@@ -83,7 +75,7 @@ const VendorRegisterForm = () => {
   if (isLoading) {
     return (
       <div className="loading-container">
-        <p>loadding..</p>
+        <p>Loading...</p>
       </div>
     );
   }
@@ -97,10 +89,10 @@ const VendorRegisterForm = () => {
     );
   }
 
-
   return (
     <form onSubmit={handleFormSubmit}style={{ backgroundColor: 'var(--tg-theme-bg-color)' }} >
       <label>
+      <p>Telegram ID: {telegramId}</p>
         Company Name:
         <input
           type="text"
@@ -128,7 +120,7 @@ const VendorRegisterForm = () => {
       </label>
       <br />
       <label>
-        Telegram ID:{ "-" +userIdd}
+        Telegram ID:{ "-" +telegramId}
         <input
           type="text"
           value={telegram_id}

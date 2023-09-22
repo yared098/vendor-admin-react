@@ -7,13 +7,13 @@ import "./pages/forms.css"
 import VendorRegisterForm from './pages/VendorRegisterForm';
 
 function App() {
-   const [userId, setUserId] = useState('');
+  //  const [userId, setUserId] = useState('');
 
   useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const userId = queryParams.get('userId');
-    console.log(`user id is get from telegram ${userId}`);
-    setUserId(userId);
+    // const queryParams = new URLSearchParams(window.location.search);
+    // const userId = queryParams.get('userId');
+    // console.log(`user id is get from telegram ${userId}`);
+    // setUserId(userId);
     
 
     if (window.Telegram && window.Telegram.WebApp) {
@@ -37,6 +37,7 @@ function App() {
             <Route path="/" element={<ShowProducts />} />
             <Route path="/update" element={<UpdateProductForm />} />
             <Route path ="/register" element={<VendorRegisterForm/>} />
+            {/* <Route path="/register" element={() => <VendorRegisterForm userId={userId} />} /> */}
           </Routes>
         </div>
 
@@ -48,7 +49,7 @@ function App() {
                   className={`nav-button ${activeButton === 'add' ? 'active' : ''}`}
                   onClick={() => handleButtonClick('add')}
                 >
-                  {userId}
+                  Add
                 </button>
               </Link>
             </li>

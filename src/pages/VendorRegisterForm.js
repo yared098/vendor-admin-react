@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../pages/register.css';
 
 const VendorRegisterForm = () => {
+  // console.log(userId);
   const [companyName, setCompanyName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -11,25 +12,19 @@ const VendorRegisterForm = () => {
   const [date_created, setDate_created] = useState('');
   const [isRegistered, setIsRegistered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  //  const [userIdd, setUserId] = useState('');
+
+
 
   useEffect(() => {
-    
     // Check if the user is already registered when the component mounts
     checkRegistrationStatus();
-    // const queryParams = new URLSearchParams(window.location.search);
-    // const userId = queryParams.get('userId');
-    // console.log(`user id is get from telegram ${userId}`);
-    // setUserId(userId);
-    
-    
   }, []);
 
   const checkRegistrationStatus = async () => {
     
     try {
       setIsLoading(true);
-      const response = await axios.get(`https://negari.marketing/api/vendor/te/${0}`, {
+      const response = await axios.get(`https://negari.marketing/api/vendor/te/${12}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",

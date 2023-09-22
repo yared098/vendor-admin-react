@@ -41,7 +41,7 @@ const VendorRegisterForm = () => {
     
     try {
       setIsLoading(true);
-      const response = await axios.get(`https://negari.marketing/api/vendor/te/${userIdd}`, {
+      const response = await axios.get(`https://negari.marketing/api/vendor/te/${76153957}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -77,7 +77,7 @@ const VendorRegisterForm = () => {
         companyName,
         phone,
         email,
-        telegram_id,
+        userIdd,
         postLimit,
         date_created
       });
@@ -133,7 +133,7 @@ const VendorRegisterForm = () => {
       </label>
       <br />
       <label>
-        Telegram ID:
+        Telegram ID:{ "-" +userIdd}
         <input
           type="text"
           value={telegram_id}

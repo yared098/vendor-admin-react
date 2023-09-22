@@ -16,17 +16,44 @@ const UpdateProductForm = ({name,pricep}) => {
   }, [name, pricep]);
 
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    // Perform the update product logic here
-    // You can access the updated values in the state variables (productName, price, discount)
+    // Prepare the updated product data
+    const updatedProduct = {
+      name: productName,
+      price: price,
+      discount: discount,
+    };
+
+    try {
+      // Make the API request to update the product
+      const response = await fetch('http://localhost:8000/api/tutorials/349', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedProduct),
+      });
+
+      // Check if the request was successful
+      if (response.ok) {
+        // Product updated successfully
+        console.log('Product updated successfully');
+      } else {
+        // Handle the failed request
+        console.error('Failed to update product');
+      }
+    } catch (error) {
+      // Handle any network or API errors
+      console.error('Error:', error);
+    }
 
     // Reset the form fields
     setProductName('');
     setPrice('');
     setDiscount('');
-  };
+  }
 
   return (
     <form onSubmit={handleFormSubmit} style={{ backgroundColor: 'var(--tg-theme-bg-color)' }} >

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
 import AddProduct from './pages/AddProduct';
 import ShowProducts from './pages/ShowProducts';
@@ -7,10 +6,15 @@ import UpdateProductForm from './pages/UpdateProductForm';
 import "./pages/forms.css"
 import VendorRegisterForm from './pages/VendorRegisterForm';
 
-// const tele = window.Telegram.WebApp;
-
 function App() {
+  const [userId, setUserId] = useState('');
+
   useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const userId = queryParams.get('userId');
+    console.log(`user id is get from telegram ${userId}`);
+    setUserId(userId);
+
     if (window.Telegram && window.Telegram.WebApp) {
       const tele = window.Telegram.WebApp;
       tele.ready();
@@ -43,7 +47,7 @@ function App() {
                   className={`nav-button ${activeButton === 'add' ? 'active' : ''}`}
                   onClick={() => handleButtonClick('add')}
                 >
-                  Add 
+                  Add {userId}
                 </button>
               </Link>
             </li>
@@ -70,10 +74,10 @@ function App() {
             <li>
               <Link to="/register" className="nav-link">
                 <button
-                  className={`nav-button ${activeButton === 'update' ? 'active' : ''}`}
-                  onClick={() => handleButtonClick('update')}
+                  className={`nav-button ${activeButton === 'register' ? 'active' : ''}`}
+                  onClick={() => handleButtonClick('register')}
                 >
-                  
+                  Register
                 </button>
               </Link>
             </li>

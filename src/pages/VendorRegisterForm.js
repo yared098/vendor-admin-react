@@ -12,19 +12,36 @@ const VendorRegisterForm = () => {
   const [date_created, setDate_created] = useState('');
   const [isRegistered, setIsRegistered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [userIdd, setUserId] = useState('');
+
+
+    useEffect(() => {
+      const queryParams = new URLSearchParams(window.location.search);
+      const userId = queryParams.get('userId');
+      console.log(`user id is get from telegram ${userId}`);
+      setUserId(userId);
+      console.log( `telegram user id ${userIdd}`);
+      
+  
+      if (window.Telegram && window.Telegram.WebApp) {
+        const tele = window.Telegram.WebApp;
+        tele.ready();
+      }
+      checkRegistrationStatus();
+    }, [userIdd]);
 
 
 
-  useEffect(() => {
-    // Check if the user is already registered when the component mounts
-    checkRegistrationStatus();
-  }, []);
+  // useEffect(() => {
+  //   // Check if the user is already registered when the component mounts
+  //   checkRegistrationStatus();
+  // }, []);
 
-  const checkRegistrationStatus = async () => {
+  const checkRegistrationStatus = async (userIdd) => {
     
     try {
       setIsLoading(true);
-      const response = await axios.get(`https://negari.marketing/api/vendor/te/${12}`, {
+      const response = await axios.get(`https://negari.marketing/api/vendor/te/${userIdd}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",

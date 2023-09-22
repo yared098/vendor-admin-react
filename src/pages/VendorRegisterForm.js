@@ -15,72 +15,62 @@ const VendorRegisterForm = () => {
   const [userIdd, setUserId] = useState('');
 
 
-    useEffect(() => {
-      const queryParams = new URLSearchParams(window.location.search);
-      const userId = queryParams.get('userId');
-      console.log(`user id is get from telegram ${userId}`);
-      setUserId(userId);
-      console.log( `telegram user id ${userIdd}`);
-      
-  
-      if (window.Telegram && window.Telegram.WebApp) {
-        const tele = window.Telegram.WebApp;
-        tele.ready();
-      }
-      checkRegistrationStatus();
-    }, [userIdd]);
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const userId = queryParams.get('userId');
+    console.log(`User ID obtained from Telegram: ${userId}`);
+    setUserId(userId);
+  }, []);
 
+  useEffect(() => {
+    if (userIdd) {
+      checkRegistrationStatus(userIdd);
+    }
+  }, [userIdd]);
 
-
-  // useEffect(() => {
-  //   // Check if the user is already registered when the component mounts
-  //   checkRegistrationStatus();
-  // }, []);
-
-  const checkRegistrationStatus = async (userIdd) => {
-    
+  const checkRegistrationStatus = async (userId) => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`https://negari.marketing/api/vendor/te/${76153957}`, {
+      const response = await axios.get(`https://negari.marketing/api/vendor/te/${userId}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "*",
           "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
-
         },
       });
+
       console.log(response.body);
-      console.log("this is response");
+      console.log("This is the response");
+
       if (response.status === 200) {
         setIsRegistered(true);
-      } else if(response.status===404) {
+      } else if (response.status === 404) {
         setIsRegistered(false);
       }
+
       setIsLoading(false);
     } catch (error) {
-      // console.log('Error checking registration status:', error);
       setIsLoading(false);
+      console.log('Error checking registration status:', error);
     }
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Perform vendor registration logic here
-    // You can access the entered values in the state variables (companyName, phone, email, telegram_id, postLimit, date_created)
 
     try {
       setIsLoading(true);
-      // Make your API request to register the vendor
-      // Example using axios:
+
       const response = await axios.post('https://negari.marketing/api/vendor/', {
         companyName,
         phone,
         email,
-        userIdd,
+        telegram_id: userIdd,
         postLimit,
-        date_created
+        date_created,
       });
+
       setIsRegistered(true);
       setIsLoading(false);
       console.log('Registration successful:', response.data);
@@ -91,7 +81,11 @@ const VendorRegisterForm = () => {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loading-container">
+        <p>loadding..</p>
+      </div>
+    );
   }
 
   if (isRegistered) {
@@ -102,6 +96,7 @@ const VendorRegisterForm = () => {
       </div>
     );
   }
+
 
   return (
     <form onSubmit={handleFormSubmit}style={{ backgroundColor: 'var(--tg-theme-bg-color)' }} >

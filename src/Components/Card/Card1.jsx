@@ -4,12 +4,12 @@ import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 
 function Card1({ food }) {
-  const { price, image, name } = food;
+  const { price, image, name ,id,disc} = food;
   const navigate = useNavigate();
 
   const handleEdited = () => {
     // Redirect to the update page and pass parameters
-    navigate(`/update?name=${name}&price=${price}`);
+    navigate(`/update?name=${name}&price=${price}&id=${id}&image=${image}&disc=${disc}`);
   };
 
   return (

@@ -1,20 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import bg from "../buregr.jpeg";
+import { useLocation } from 'react-router-dom';
 import "../pages/forms.css";
 
-
-const UpdateProductForm = ({name,pricep}) => {
+const UpdateProductForm = ({ name, pricep }) => {
   const [productName, setProductName] = useState('');
   const [productId, setProductId] = useState('');
   const [price, setPrice] = useState('');
+  const [Image, setImage] = useState('');
   const [discount, setDiscount] = useState('');
+  
+  const location = useLocation();
 
   useEffect(() => {
-    // Set the initial values when the component mounts
-    setProductName(name);
-    setPrice(pricep);
-  }, [name, pricep]);
+    const searchParams = new URLSearchParams(location.search);
+    const productName = searchParams.get('name');
+    const productPrice = searchParams.get('price');
+    const productId = searchParams.get('id');
+    const image = searchParams.get('image');
+    const disc=searchParams.get('disc');
 
+    console.log('Name:', productName);
+    console.log('Price:', productPrice);
+    // Set the initial values when the component mounts
+    setProductName(productName);
+    setPrice(productPrice);
+    setProductId(productId);
+    setImage(image);
+    setDiscount(disc);
+    
+  }, [location.search]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -24,13 +38,11 @@ const UpdateProductForm = ({name,pricep}) => {
       name: productName,
       price: price,
       disc: discount,
-      
-
     };
 
     try {
       // Make the API request to update the product
-      const response = await fetch('https://negari.marketing/api/product/419', {
+      const response = await fetch(`https://negari.marketing/api/product/${productId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -55,10 +67,10 @@ const UpdateProductForm = ({name,pricep}) => {
     setProductName('');
     setPrice('');
     setDiscount('');
-  }
+  };
 
   return (
-    <form onSubmit={handleFormSubmit} style={{ backgroundColor: 'var(--tg-theme-bg-color)' }} >
+    <form onSubmit={handleFormSubmit} style={{ backgroundColor: 'var(--tg-theme-bg-color)' }}>
       <div className="mb-3">
         <label className="form-label">Product ID:</label>
         <input
@@ -77,7 +89,6 @@ const UpdateProductForm = ({name,pricep}) => {
           onChange={(e) => setProductName(e.target.value)}
         />
       </div>
-
       <div className="mb-3">
         <label className="form-label">Price:</label>
         <input
@@ -87,7 +98,6 @@ const UpdateProductForm = ({name,pricep}) => {
           onChange={(e) => setPrice(e.target.value)}
         />
       </div>
-
       <div className="mb-3">
         <label className="form-label">Disc...:</label>
         <input
@@ -97,14 +107,12 @@ const UpdateProductForm = ({name,pricep}) => {
           onChange={(e) => setDiscount(e.target.value)}
         />
       </div>
-
       <div className="mb-3">
         <label className="form-label">Product Image:</label>
         <div className="image__container">
-          <img src={bg} alt={""} />
+          <img src={Image} alt="" />
         </div>
       </div>
-
       <button type="submit" className="btn btn-primary">Update Product</button>
     </form>
   );

@@ -18,7 +18,7 @@ function Card1({ food }) {
         <img src={image} alt={""} />
       </div>
       <h4 className="card__title">
-        {name} . <span className="card__price">$ {price}</span>
+        {name}  <span className="card__price"> {price}</span>
       </h4>
 
       <div className="cafe-item-buttons">

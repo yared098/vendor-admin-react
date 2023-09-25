@@ -3,10 +3,6 @@ import { useState, useEffect } from "react";
 import "../App.css";
 import Card1 from "../Components/Card/Card1";
 
-
-
-
-
 function ShowProducts({telegramId}) {
   // this add new file 
   const [data, setData] = useState([]);
@@ -40,7 +36,7 @@ function ShowProducts({telegramId}) {
   };
   const refreshInterval = 30 * 1000; // 30 seconds
 
-  // setInterval(fetchData, refreshInterval);
+   setInterval(fetchData, refreshInterval);
 
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
@@ -72,14 +68,8 @@ function ShowProducts({telegramId}) {
     }
   };
 
-
-
- 
-
-
   return (
     <>
-   
       <section className="cafe-page cafe-items " id="section-1">
         <br></br>
         {/* <Cart cartItems={cartItems} onCheckout={onCheckout} /> */}

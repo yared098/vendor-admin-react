@@ -23,12 +23,14 @@ const UpdateProductForm = ({name,pricep}) => {
     const updatedProduct = {
       name: productName,
       price: price,
-      discount: discount,
+      disc: discount,
+      
+
     };
 
     try {
       // Make the API request to update the product
-      const response = await fetch('http://localhost:8000/api/tutorials/349', {
+      const response = await fetch('https://negari.marketing/api/product/419', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +91,7 @@ const UpdateProductForm = ({name,pricep}) => {
       <div className="mb-3">
         <label className="form-label">Disc...:</label>
         <input
-          type="number"
+          type="text"
           className="form-control"
           value={discount}
           onChange={(e) => setDiscount(e.target.value)}

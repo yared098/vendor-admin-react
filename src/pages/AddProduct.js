@@ -1,24 +1,24 @@
 import React, { useState } from "react";
- import "../pages/forms.css"
+import "../pages/forms.css"
 
-const AddProductForm = ({telegramId}) => {
+const AddProductForm = ({ telegramId }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [disc, setDisc] = useState("");
   const [image, setImage] = useState("");
   const [owner, setOwner] = useState("");
   const [link, setLink] = useState("");
-  
+
   const currentDate = new Date();
 
-const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Adding 1 since January is represented as 0
-const seconds = String(currentDate.getSeconds()).padStart(2, '0');
-const minutes = String(currentDate.getMinutes()).padStart(2, '0');
-const hours = String(currentDate.getHours()).padStart(2, '0');
-const day = String(currentDate.getDate()).padStart(2, '0');
-const year = String(currentDate.getFullYear());
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Adding 1 since January is represented as 0
+  const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+  const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+  const hours = String(currentDate.getHours()).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  const year = String(currentDate.getFullYear());
 
-const formattedString = `${month}/${seconds}/${minutes}/${hours}/${day}/${year}`;
+  const formattedString = `${month}/${seconds}/${minutes}/${hours}/${day}/${year}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,10 +28,10 @@ const formattedString = `${month}/${seconds}/${minutes}/${hours}/${day}/${year}`
       price,
       disc,
       image,
-      owner:telegramId,
+      owner: telegramId,
       approved: 0,
-      link,
-      data_created: formattedString.toString(),
+      link:"https://negari.marketing/api/product/",
+      data_created:new Date().toString(),
     };
 
     fetch("https://negari.marketing/api/product/", {

@@ -40,7 +40,7 @@ function ShowProducts({telegramId}) {
   };
   const refreshInterval = 30 * 1000; // 30 seconds
 
-  setInterval(fetchData, refreshInterval);
+  // setInterval(fetchData, refreshInterval);
 
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
@@ -76,8 +76,6 @@ function ShowProducts({telegramId}) {
 
  
 
-
- 
 
   return (
     <>

@@ -2,6 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "../App.css";
 import Card1 from "../Components/Card/Card1";
+const tele = window.Telegram.WebApp;
+
+tele.MainButton.title = "Phone ";
 
 function ShowProducts({telegramId}) {
   // this add new file 
@@ -10,6 +13,7 @@ function ShowProducts({telegramId}) {
   useEffect(() => {
     fetchData(telegramId);
   }, [telegramId]);
+  tele.MainButton.title = "Phone ";
 
   const fetchData = async (telegram_id) => {
     try {

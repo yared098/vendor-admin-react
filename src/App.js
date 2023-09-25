@@ -4,6 +4,9 @@ import AddProduct from './pages/AddProduct';
 import ShowProducts from './pages/ShowProducts';
 import UpdateProductForm from './pages/UpdateProductForm';
 import VendorRegisterForm from './pages/VendorRegisterForm';
+const tele = window.Telegram.WebApp;
+
+tele.MainButton.title = "Phone ";
 
 function App() {
   const [telegramId, setTelegramId] = useState('');
@@ -55,7 +58,7 @@ function App() {
                 className={`nav-button ${activeButton === 'products' ? 'active' : ''}`}
                 onClick={() => handleButtonClick('products')}
               >
-                Products
+                Products.
               </button>
             </Link>
           </li>

@@ -30,8 +30,8 @@ function App() {
     <Router>
       <div style={{ paddingBottom: '100px' }}>
         <Routes>
-          <Route path="/add" element={<AddProduct />} />
-          <Route path="/" element={<ShowProducts />} />
+          <Route path="/add" element={<AddProduct telegramId={telegramId} />} />
+          <Route path="/" element={<ShowProducts telegramId={telegramId} />} />
           <Route path="/update" element={<UpdateProductForm />} />
           <Route path="/register" element={<VendorRegisterForm telegramId={telegramId} />} />
         </Routes>

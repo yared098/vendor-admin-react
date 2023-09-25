@@ -7,17 +7,17 @@ import Card1 from "../Components/Card/Card1";
 
 
 
-function ShowProducts() {
+function ShowProducts({telegramId}) {
   // this add new file 
   const [data, setData] = useState([]);
  
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(telegramId);
+  }, [telegramId]);
 
-  const fetchData = async () => {
+  const fetchData = async (telegram_id) => {
     try {
-      const response = await axios.get("https://negari.marketing/api/product/", {
+      const response = await axios.get(`https://negari.marketing/api/product/my/${telegram_id}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",

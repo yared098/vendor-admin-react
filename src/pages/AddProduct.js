@@ -1,7 +1,7 @@
 import React, { useState } from "react";
  import "../pages/forms.css"
 
-const AddProductForm = () => {
+const AddProductForm = ({telegramId}) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [disc, setDisc] = useState("");
@@ -17,7 +17,7 @@ const AddProductForm = () => {
       price,
       disc,
       image,
-      owner,
+      owner:telegramId,
       approved: 0,
       link,
       data_created: new Date().toISOString(),

@@ -34,7 +34,7 @@ function App() {
       <div style={{ paddingBottom: '100px' }}>
         <Routes>
           <Route path="/add" element={<AddProduct telegramId={telegramId} />} />
-          <Route path="/" element={<ShowProducts telegramId={761513957} />} />
+          <Route path="/" element={<ShowProducts telegramId={telegramId} />} />
           <Route path="/update" element={<UpdateProductForm />} />
           <Route path="/register" element={<VendorRegisterForm telegramId={telegramId} />} />
         </Routes>
@@ -58,7 +58,7 @@ function App() {
                 className={`nav-button ${activeButton === 'products' ? 'active' : ''}`}
                 onClick={() => handleButtonClick('products')}
               >
-                Products.
+                Products
               </button>
             </Link>
           </li>

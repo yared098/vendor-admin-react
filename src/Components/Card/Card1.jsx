@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 
 function Card1({ food }) {
-  const { price, image, name ,id,disc} = food;
+  const { price, image, name, id, disc } = food;
   const navigate = useNavigate();
 
   const handleEdited = () => {
@@ -15,10 +15,10 @@ function Card1({ food }) {
   return (
     <div className="cafe-item js-item">
       <div className="image__container">
-        <img src={image} alt={""} />
+        <img className="circular-image" src={image} alt={""} />
       </div>
       <h4 className="card__title">
-        {name}  <span className="card__price"> {price}</span>
+        {name} <span className="card__price"> {price}</span>
       </h4>
 
       <div className="cafe-item-buttons">

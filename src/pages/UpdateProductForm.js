@@ -8,7 +8,7 @@ const UpdateProductForm = ({ name, pricep }) => {
   const [price, setPrice] = useState('');
   const [Image, setImage] = useState('');
   const [discount, setDiscount] = useState('');
-  
+
   const location = useLocation();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const UpdateProductForm = ({ name, pricep }) => {
     const productPrice = searchParams.get('price');
     const productId = searchParams.get('id');
     const image = searchParams.get('image');
-    const disc=searchParams.get('disc');
+    const disc = searchParams.get('disc');
 
     console.log('Name:', productName);
     console.log('Price:', productPrice);
@@ -27,7 +27,6 @@ const UpdateProductForm = ({ name, pricep }) => {
     setProductId(productId);
     setImage(image);
     setDiscount(disc);
-    
   }, [location.search]);
 
   const handleFormSubmit = async (e) => {
@@ -57,6 +56,32 @@ const UpdateProductForm = ({ name, pricep }) => {
       } else {
         // Handle the failed request
         console.error('Failed to update product');
+      }
+    } catch (error) {
+      // Handle any network or API errors
+      console.error('Error:', error);
+    }
+
+    // Reset the form fields
+    setProductName('');
+    setPrice('');
+    setDiscount('');
+  };
+
+  const handleDelete = async () => {
+    try {
+      // Make the API request to delete the product
+      const response = await fetch(`https://negari.marketing/api/product/${productId}`, {
+        method: 'DELETE',
+      });
+
+      // Check if the request was successful
+      if (response.ok) {
+        // Product deleted successfully
+        console.log('Product deleted successfully');
+      } else {
+        // Handle the failed request
+        console.error('Failed to delete product');
       }
     } catch (error) {
       // Handle any network or API errors
@@ -113,7 +138,10 @@ const UpdateProductForm = ({ name, pricep }) => {
           <img src={Image} alt="" />
         </div>
       </div>
-      <button type="submit" className="btn btn-primary">Update Product</button>
+      <div>
+        <button type="submit" className="btn btn-primary">Update Product</button>
+        <button type="button" className="btn btn-danger" onClick={handleDelete}>Delete Product</button>
+      </div>
     </form>
   );
 };

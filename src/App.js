@@ -40,7 +40,7 @@ function App() {
         </Routes>
       </div>
 
-      <nav style={{ borderRadius: '2px', position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#fff' }}>
+      <nav style={{ borderRadius: '2px', position: 'fixed', bottom: 0, width: '100%', backgroundColor: 'var(--tg-theme-button-color)' }}>
         <ul style={{ display: 'flex', justifyContent: 'space-around', listStyle: 'none', padding: 0 }}>
           <li>
             <Link to="/add" className="nav-link">

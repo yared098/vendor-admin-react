@@ -32,7 +32,7 @@ const AddProductForm = ({ telegramId }) => {
       approved: 0,
       link:"https://negari.marketing/api/product/",
       data_created:new Date().toString(),
-      category:new Date().toString()
+      category:"Electronics"
     };
 
     fetch("https://negari.marketing/api/product/", {

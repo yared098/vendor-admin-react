@@ -105,6 +105,7 @@ body.order-mode .cafe-items {
 .cafe-item-photo {
   position: relative;
   height: 78px;
+  border-radius: 50%;
 }
 .cafe-item-photo .cafe-item-emoji {
   font-size: 70px;

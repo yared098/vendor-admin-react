@@ -30,6 +30,9 @@ html.dark body {
 .card__title .card__price {
   font-weight: bold;
   color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   
 }
 

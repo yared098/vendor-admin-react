@@ -136,6 +136,9 @@ body.order-mode .cafe-items {
 .cafe-item-label {
   display: flex;
   justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .cafe-item-title {
   font-weight: 500;

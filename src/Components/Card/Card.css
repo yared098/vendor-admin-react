@@ -20,6 +20,10 @@ html.dark body {
   color:black;
   /* color: #e22323; */
   font-size: medium;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-color)
   color: var(--text-color);
 }
 
@@ -30,7 +34,7 @@ html.dark body {
 }
 
 .image__container {
-  width: 70px;
+  width: 65px;
   height: 65px;
   margin: 10 auto;
   align-items: center;
@@ -41,6 +45,7 @@ html.dark body {
 .image__container img {
   width: 100%;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 

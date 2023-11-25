@@ -23,7 +23,6 @@ html.dark body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--text-color)
   color: var(--text-color);
 }
 

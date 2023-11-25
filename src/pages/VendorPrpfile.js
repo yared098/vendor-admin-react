@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../pages/register.css';
-
+// import { useParams } from 'react-router-dom';
 const VendorRegisterForm = ({ telegramId }) => {
   const [companyName, setCompanyName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [telegram_id, setTelegram_id] = useState('');
   const [postLimit, setPostLimit] = useState('');
+  const [date_created, setDate_created] = useState('');
   const [isRegistered, setIsRegistered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  // const { telegramId } = useParams();
 
   useEffect(() => {
     checkRegistrationStatus(telegramId);
+    // if (telegramId) {
+    //   checkRegistrationStatus(telegramId);
+    // }
   }, [telegramId]);
 
   const checkRegistrationStatus = async (userId) => {
@@ -54,7 +60,7 @@ const VendorRegisterForm = ({ telegramId }) => {
         email,
         telegram_id: telegramId,
         postLimit,
-        date_created: new Date().toString(), // Set the current date as the default value
+        date_created,
       });
 
       setIsRegistered(true);
@@ -84,9 +90,9 @@ const VendorRegisterForm = ({ telegramId }) => {
   }
 
   return (
-    <form onSubmit={handleFormSubmit} style={{ backgroundColor: 'var(--tg-theme-bg-color)' }}>
+    <form onSubmit={handleFormSubmit}style={{ backgroundColor: 'var(--tg-theme-bg-color)' }} >
       <label>
-        <p>Telegram ID: {telegramId}</p>
+      <p>Telegram ID: {telegramId}</p>
         Company Name:
         <input
           type="text"
@@ -114,8 +120,12 @@ const VendorRegisterForm = ({ telegramId }) => {
       </label>
       <br />
       <label>
-        Telegram ID: {"-" + telegramId}
-        {/* Removed the input field for telegram_id */}
+        Telegram ID:{ "-" +telegramId}
+        <input
+          type="text"
+          value={telegram_id}
+          onChange={(e) => setTelegram_id(e.target.value)}
+        />
       </label>
       <br />
       <label>
@@ -127,7 +137,15 @@ const VendorRegisterForm = ({ telegramId }) => {
         />
       </label>
       <br />
-      {/* Removed the input field for date_created */}
+      <label>
+        Date Created:
+        <input
+          type="text"
+          value={date_created}
+          onChange={(e) => setDate_created(e.target.value)}
+        />
+      </label>
+      <br />
       <button type="submit" className="btn btn-primary">Register</button>
     </form>
   );

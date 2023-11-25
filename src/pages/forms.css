@@ -1,8 +1,7 @@
 
-.nav-button {
-  /* Your button styles */
+.btn {
+  border-radius: 5px;
 }
-
 .nav-button.active {
   background-color: #ff0000; /* Replace with your desired background color */
   /* Additional styles for the active button */

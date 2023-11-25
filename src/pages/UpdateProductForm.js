@@ -140,6 +140,7 @@ const UpdateProductForm = ({ name, pricep }) => {
       </div>
       <div>
         <button type="submit" className="btn btn-primary">Update Product</button>
+        <hr></hr>
         <button type="button" className="btn btn-danger" onClick={handleDelete}>Delete Product</button>
       </div>
     </form>

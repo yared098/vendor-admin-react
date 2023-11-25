@@ -3,6 +3,73 @@ import axios from 'axios';
 import '../pages/register.css';
 
 const VendorRegisterForm = ({ telegramId }) => {
+
+   const incomingOrders = [
+    {
+      id: 1,
+      customerName: 'John Doe',
+      orderDetails: 'Order 1 details',
+      orderStatus:false
+    },
+    {
+      id: 2,
+      customerName: 'Jane Smith',
+      orderDetails: 'Order 2 details',
+      orderStatus:false
+    },
+    // Add more objects as needed
+    {
+      id: 3,
+      customerName: 'Alice Johnson',
+      orderDetails: 'Order 3 details',
+      orderStatus:true
+    },
+    {
+      id: 4,
+      customerName: 'Bob Anderson',
+      orderDetails: 'Order 4 details',
+      orderStatus:true
+    },
+    {
+      id: 5,
+      customerName: 'Eve Roberts',
+      orderDetails: 'Order 5 details',
+      orderStatus:false
+    },
+    {
+      id: 6,
+      customerName: 'Michael Brown',
+      orderDetails: 'Order 6 details',
+      orderStatus:true
+    },
+    {
+      id: 7,
+      customerName: 'Olivia Davis',
+      orderDetails: 'Order 7 details',
+      orderStatus:false
+    },
+    {
+      id: 8,
+      customerName: 'William Wilson',
+      orderDetails: 'Order 8 details',
+      orderStatus:false
+    },
+    {
+      id: 9,
+      customerName: 'Sophia Thompson',
+      orderDetails: 'Order 9 details',
+      orderStatus:true
+    },
+    {
+      id: 10,
+      customerName: 'James Taylor',
+      orderDetails: 'Order 10 details',
+      orderStatus:true
+    }
+  ];
+  
+
+
   const [companyName, setCompanyName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -77,15 +144,28 @@ const VendorRegisterForm = ({ telegramId }) => {
   if (isRegistered) {
     return (
       <div>
-        <h2>Already Registered</h2>
+        <h2>Welcome to Ethio-24 Market</h2>
         <p>You have already registered as a vendor.</p>
+        {/* Render the horizontal list continuously */}
+        <div className="horizontal-list">
+          {incomingOrders.map((order) => (
+          <div key={order.id} className="order-item">
+          <img src="https://cdn.pixabay.com/photo/2014/04/02/10/53/shopping-cart-304843_640.png" alt="Profile" className="profile-image" style={{ borderRadius: '50%' }} />
+          <div>
+            <p>{order.customerName}</p>
+            <p>{order.orderDetails}</p>
+          </div>
+          <p className={order.orderStatus ? false : 'failure'}>{order.orderStatus ? true : 'Not Success'}</p>
+        </div>
+          ))}
+        </div>
       </div>
     );
   }
-
   return (
     <form onSubmit={handleFormSubmit} style={{ backgroundColor: 'var(--tg-theme-bg-color)' }}>
       <label>
+        <p> Register as Vendor</p>
         <p>Telegram ID: {telegramId}</p>
         Company Name:
         <input

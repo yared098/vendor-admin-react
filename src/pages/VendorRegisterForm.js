@@ -145,7 +145,7 @@ const VendorRegisterForm = ({ telegramId }) => {
     return (
       <div>
         <h2>Welcome to Ethio-24 Market</h2>
-        <p>You have already registered as a vendor.</p>
+        <p>You have already registered .</p>
         {/* Render the horizontal list continuously */}
         <div className="horizontal-list">
           {incomingOrders.map((order) => (
@@ -155,7 +155,7 @@ const VendorRegisterForm = ({ telegramId }) => {
             <p>{order.customerName}</p>
             <p>{order.orderDetails}</p>
           </div>
-          <p className={order.orderStatus ? false : 'failure'}>{order.orderStatus ? true : 'Not Success'}</p>
+          <p className={order.orderStatus ? 'success' : 'failure'}>{order.orderStatus ? 'Yes Success' : 'Not Success'}</p>
         </div>
           ))}
         </div>

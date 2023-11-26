@@ -75,7 +75,9 @@ const AddProductForm = ({ telegramId }) => {
           Price:
         </label>
         <input
-          type="text"
+          // type="text"
+          type="number" 
+          step="0.01"
           id="price"
           className="form-control"
           value={price}

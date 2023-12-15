@@ -119,6 +119,12 @@ const AddProductForm = ({ telegramId }) => {
           <option value="Electronics">Electronics</option>
           <option value="Fashion">Fashion</option>
           <option value="Shoe">Shoe</option>
+          <option value="Book">Book</option>
+          <option value="Cars">Cars</option>
+          <option value="Home">Home</option>
+          <option value="Medical">Medical</option>
+
+          
         </select>
       </div>
       <div className="mb-3">

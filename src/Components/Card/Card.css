@@ -17,25 +17,56 @@ html.dark body {
 .card__title {
   font-weight: 600wp;
   text-align: center;
-  color:black;
-  /* color: #e22323; */
-  font-size: medium;
+  /* color:black; */
+  color: #524848;
+  font-size: smaller;
+  color: var(--text-color);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--text-color);
 }
-
+.cafe-item-buttons {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  justify-content: space-between;
+  margin: 1px auto 1;
+  position: relative;
+  transition: all var(--animation);
+}
+button {
+  cursor: pointer;
+  pointer-events: all;
+  /* background-color: #b321e0; */
+  width: auto;
+  align-items: center;
+  /* width: 140px; */
+  
+}
 .card__title .card__price {
   font-weight: bold;
   color: var(--text-color);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   
 }
-
 .image__container {
+  width: 75px;
+  height: 75px;
+  margin: 1px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15%;
+  overflow: hidden;
+}
+
+.image__container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* .image__container {
   width: 65px;
   height: 65px;
   margin: 10 auto;
@@ -43,20 +74,20 @@ html.dark body {
   margin: 0;
   padding-left: 10px;
   border-radius: 50%;
-
 }
 
 .image__container img {
   width: 100%;
   object-fit: cover;
   border-radius: 50%;
-}
+} */
 
 
 .card__badge {
   position: absolute;
-  top: 12px;
-  right: 9px;
+  top: 19px;
+  left: 10px;
+  right: 90px;
 
   width: 30px;
   height: 30px;
@@ -85,4 +116,84 @@ html.dark body {
 
 .card__badge--hidden {
   display: none;
+}
+
+
+/* this is add for  the modal popup */
+/* Modal Container */
+/* Modal Container */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Modal Overlay */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Content */
+.modal-content {
+  max-width: 50%;
+  width: 90%;
+  color: rgb(255, 255, 255);
+  padding: 2px;
+  /* border-radius: 49px; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
+
+/* Modal Image */
+.modal-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Modal Title */
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* Modal Price */
+.modal-price {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* Modal Description */
+.modal-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+/* Modal Close Button */
+.modal-close {
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Adjust modal styles for smaller screens */
+  .modal-content {
+    max-width: 90%;
+  }
 }

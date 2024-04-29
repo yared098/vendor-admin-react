@@ -4,86 +4,37 @@ import AddProduct from './pages/AddProduct';
 import ShowProducts from './pages/ShowProducts';
 import UpdateProductForm from './pages/UpdateProductForm';
 import VendorRegisterForm from './pages/VendorRegisterForm';
-const tele = window.Telegram.WebApp;
+import './App.css';  // Ensure you have an App.css file for styling
 
-tele.MainButton.title = "Phone ";
-
-function App() {
+const App = () => {
   const [telegramId, setTelegramId] = useState('');
+  const [activeButton, setActiveButton] = useState('');
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const userId = queryParams.get('userId');
-    console.log(`User ID received from Telegram: ${userId}`);
     setTelegramId(userId);
-
-    if (window.Telegram && window.Telegram.WebApp) {
-      const tele = window.Telegram.WebApp;
-      tele.ready();
-    }
+    window.Telegram?.WebApp?.ready();
   }, []);
 
-  const [activeButton, setActiveButton] = useState('');
-
-  const handleButtonClick = (button) => {
-    setActiveButton(button);
-  };
+  const handleButtonClick = (button) => setActiveButton(button);
 
   return (
     <Router>
-      <div style={{ paddingBottom: '100px' }}>
+      <div className="app-container">
         <Routes>
           <Route path="/add" element={<AddProduct telegramId={telegramId} />} />
           <Route path="/" element={<ShowProducts telegramId={telegramId} />} />
           <Route path="/update" element={<UpdateProductForm />} />
           <Route path="/register" element={<VendorRegisterForm telegramId={telegramId} />} />
         </Routes>
+        <nav className="bottom-nav">
+          <Link to="/add" onClick={() => handleButtonClick('add')} className={`nav-button ${activeButton === 'add' ? 'active' : ''}`}>Add</Link>
+          <Link to="/" onClick={() => handleButtonClick('products')} className={`nav-button ${activeButton === 'products' ? 'active' : ''}`}>Products</Link>
+          <Link to="/update" onClick={() => handleButtonClick('update')} className={`nav-button ${activeButton === 'update' ? 'active' : ''}`}>Update</Link>
+          <Link to="/register" onClick={() => handleButtonClick('register')} className={`nav-button ${activeButton === 'register' ? 'active' : ''}`}>+</Link>
+        </nav>
       </div>
-
-      <nav style={{ borderRadius: '2px', position: 'fixed', bottom: 0, width: '100%', backgroundColor: 'var(--tg-theme-button-color)' }}>
-        <ul style={{ display: 'flex', justifyContent: 'space-around', listStyle: 'none', padding: 0 }}>
-          <li>
-            <Link to="/add" className="nav-link">
-              <button
-                className={`nav-button ${activeButton === 'add' ? 'active' : ''}`}
-                onClick={() => handleButtonClick('add')}
-              >
-                Add
-              </button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/" className="nav-link">
-              <button
-                className={`nav-button ${activeButton === 'products' ? 'active' : ''}`}
-                onClick={() => handleButtonClick('products')}
-              >
-                Products
-              </button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/update" className="nav-link">
-              <button
-                className={`nav-button ${activeButton === 'update' ? 'active' : ''}`}
-                onClick={() => handleButtonClick('update')}
-              >
-                Update
-              </button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/register" className="nav-link">
-              <button
-                className={`nav-button ${activeButton === 'register' ? 'active' : ''}`}
-                onClick={() => handleButtonClick('register')}
-              >
-                +
-              </button>
-            </Link>
-          </li>
-        </ul>
-      </nav>
     </Router>
   );
 }

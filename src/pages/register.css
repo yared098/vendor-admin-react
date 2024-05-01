@@ -50,22 +50,21 @@ button.btn:hover {
   font-size: 18px;
 }
 
-/* Order List Styles */
-.horizontal-list {
-  display: flex;
-  overflow-x: auto;
+/* Vertical List Styles */
+.vertical-list {
+  max-height: 300px;
+  overflow-y: auto;
   padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .order-item {
-  flex: 0 0 auto;
-  width: 200px;
-  margin-right: 10px;
+  margin-bottom: 10px;
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 8px;
   padding: 10px;
-  text-align: center;
 }
 
 .profile-image {

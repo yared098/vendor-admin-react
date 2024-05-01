@@ -1,67 +1,84 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--tg-theme-bg-color);
+}
+
+/* Form Styling */
 form {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-    color: var(--text-color);
-  }
-  
-  input {
-    width: 100%;
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    display: block;
-    margin-top: 0px;
-    /* padding: 5px 20px 3px 4px; */
-    font-size: 16px;
-    background-color: #e08b1d;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  /*  this is for orders  */
-  .horizontal-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .order-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #000;
-    padding: 10px;
-  }
-  
-  .order-item .profile-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid #000;
-  }
-  
-  .order-item div {
-    margin-left: 10px;
-  }
-  
-  .order-item p {
-    margin: 0;
-  }
-  
-  .order-item .success {
-    color: green;
-  }
-  
-  .order-item .failure {
-    color: red;
-  }
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Loading and Error Messages */
+.loading-container,
+.error-message {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+}
+
+/* Order List Styles */
+.horizontal-list {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.order-item {
+  flex: 0 0 auto;
+  width: 200px;
+  margin-right: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.success {
+  color: #28a745;
+}
+
+.failure {
+  color: #dc3545;
+}

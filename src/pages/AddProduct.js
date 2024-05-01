@@ -9,8 +9,29 @@ const AddProductForm = ({ telegramId }) => {
   const [category, setCategory] = useState("All");
   const [link, setLink] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        },
+        (error) => {
+          console.error("Error retrieving location: ", error.message);
+          setErrorMessage("Error retrieving location. Please enable location services and try again.");
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+      setErrorMessage("Geolocation is not supported by this browser.");
+    }
+  };
 
   const handleSubmit = (e) => {
+    getLocation()
     e.preventDefault();
 
     if (!name || !price || !disc || !category) {
@@ -23,12 +44,18 @@ const AddProductForm = ({ telegramId }) => {
       price,
       disc,
       image,
-      owner: telegramId, // Provide a default value for owner here
+      owner: telegramId,
       approved: 0,
       link,
       data_created: new Date().toString(),
       category,
+      // location: latitude && longitude ? { lat: latitude, lon: longitude } : null,
+      lat:latitude,
+      lon: longitude
     };
+    console.log(latitude+ " this is latitude ")
+    console.log(productData);
+    
 
     fetch("https://negari.marketing/api/product/", {
       method: "POST",
@@ -47,21 +74,30 @@ const AddProductForm = ({ telegramId }) => {
           setCategory("All");
           setLink("");
           setErrorMessage("");
+          setLatitude(null);
+          setLongitude(null);
         } else {
-          console.error("Failed to create product:", response.status);
+          response.json().then(data => {
+            console.error("Failed to create product: ", data.message);
+            setErrorMessage("Failed to create product: " + data.message);
+          });
         }
       })
       .catch((error) => {
-        console.error("Error creating product:", error);
+        console.error("Error creating product: ", error);
+        setErrorMessage("Error creating product: " + error.message);
       });
   };
 
   return (
     <form onSubmit={handleSubmit} style={{ backgroundColor: "var(--tg-theme-bg-color)" }}>
       <div className="mb-3">
-        <label htmlFor="name" className="form-label">
-          Name:
-        </label>
+        <button type="button" className="btn btn-secondary mb-3" onClick={getLocation}>
+          Use My Location
+        </button>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">Name:</label>
         <input
           type="text"
           id="name"
@@ -71,9 +107,7 @@ const AddProductForm = ({ telegramId }) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="price" className="form-label">
-          Price:
-        </label>
+        <label htmlFor="price" className="form-label">Price:</label>
         <input
           type="text"
           id="price"
@@ -83,9 +117,7 @@ const AddProductForm = ({ telegramId }) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="disc" className="form-label">
-          Description:
-        </label>
+        <label htmlFor="disc" className="form-label">Description:</label>
         <textarea
           id="disc"
           className="form-control"
@@ -94,9 +126,7 @@ const AddProductForm = ({ telegramId }) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="image" className="form-label">
-          Image url:
-        </label>
+        <label htmlFor="image" className="form-label">Image url:</label>
         <input
           type="text"
           id="image"
@@ -106,9 +136,7 @@ const AddProductForm = ({ telegramId }) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="category" className="form-label">
-          Category:
-        </label>
+        <label htmlFor="category" className="form-label">Category:</label>
         <select
           id="category"
           className="form-control"
@@ -123,14 +151,10 @@ const AddProductForm = ({ telegramId }) => {
           <option value="Cars">Cars</option>
           <option value="Home">Home</option>
           <option value="Medical">Medical</option>
-
-          
         </select>
       </div>
       <div className="mb-3">
-        <label htmlFor="link" className="form-label">
-          Link:
-        </label>
+        <label htmlFor="link" className="form-label">Link:</label>
         <input
           type="text"
           id="link"

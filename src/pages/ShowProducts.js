@@ -78,14 +78,20 @@ function ShowProducts({telegramId}) {
         <br></br>
         {/* <Cart cartItems={cartItems} onCheckout={onCheckout} /> */}
 
-        <div className="cafe-items" id="showpr">
+        {/* <div className="cafe-items" id="showpr">
           {data.map((food) => {
             return (
               <Card1 food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
             );
 
           })}
-        </div>
+        </div> */}
+        <div className="cafe-items" id="showpr">
+    {Array.isArray(data) ? data.map((food) => (
+        <Card1 food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
+    )) : <p>No products found.</p>}
+</div>
+
       </section>
       
     </>

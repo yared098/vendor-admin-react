@@ -57,7 +57,7 @@ const AddProductForm = ({ telegramId }) => {
       owner: telegramId,
       approved: 0,
       link,
-      data_created: new Date().toISOString(),
+      date_created: new Date().toISOString(),
       category,
       lat: latitude || 0.00,
       lon: longitude || 0.00
@@ -87,13 +87,15 @@ const AddProductForm = ({ telegramId }) => {
           setUseLocation(false); // Reset the checkbox after submission
         } else {
           response.json().then((data) => {
-            console.error("Failed to create product: ", data.message);
-            setErrorMessage("Failed to create product: " + data.message);
+            console.error("Failed to create product:", data);
+            setErrorMessage("Failed to create product: " + (data.message || "Unknown error"));
+          }).catch(() => {
+            setErrorMessage("Failed to create product: Unable to parse error response");
           });
         }
       })
       .catch((error) => {
-        console.error("Error creating product: ", error);
+        console.error("Error creating product:", error);
         setErrorMessage("Error creating product: " + error.message);
       });
   };

@@ -22,7 +22,7 @@ function Test() {
 
   return (
     <div className="Test">
-      {/* <header className="Test-header">
+      <header className="Test-header">
         <h1>YeneRide</h1>
         {!isDrawerOpen && (
           <button onClick={toggleDrawer}>Open Drawer</button>
@@ -30,7 +30,7 @@ function Test() {
         {isDrawerOpen && (
           <button onClick={closeDrawer} className="back-arrow">&#8592; Close</button>
         )}
-      </header> */}
+      </header>
       <aside className={`Test-drawer ${isDrawerOpen ? 'open' : ''}`}>
         <div className="Drawer-header">
           <button onClick={closeDrawer} className="back-arrow">&#8592; Close</button>

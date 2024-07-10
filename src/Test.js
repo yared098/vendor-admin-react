@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Test.css'; // Don't forget to rename the corresponding CSS file
 import drivers from './TestData/drivers.json'; // Import drivers.json
-import history from "./TestData/history.json";
+import history from './TestData/history.json'; // Import history.json
 
 function Test() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -22,15 +22,7 @@ function Test() {
 
   return (
     <div className="Test">
-      <header className="Test-header">
-        <h1>YeneRide</h1>
-        {!isDrawerOpen && (
-          <button onClick={toggleDrawer}>Open Drawer</button>
-        )}
-        {isDrawerOpen && (
-          <button onClick={closeDrawer} className="back-arrow">&#8592; Close</button>
-        )}
-      </header>
+      
       <aside className={`Test-drawer ${isDrawerOpen ? 'open' : ''}`}>
         <div className="Drawer-header">
           <button onClick={closeDrawer} className="back-arrow">&#8592; Close</button>
@@ -62,38 +54,42 @@ function Test() {
         )}
         {selectedItem === 'near' && (
           <div>
-            {/* <h2>Near Rides</h2> */}
-            <div className="cards-container">
+            <div className="list-group">
               {drivers.map(driver => (
-                <div key={driver.driverId} className="card">
-                  <h3>{driver.name}</h3>
-                  <p><strong>Phone:</strong> {driver.phone}</p>
-                  <p><strong>Car ID:</strong> {driver.carId}</p>
-                  <p><strong>Model:</strong> {driver.model}</p>
-                </div>
+                <a
+                  key={driver.driverId}
+                  href="#"
+                  className="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">{driver.name}</h5>
+                    <small className="text-muted">{driver.phone}</small>
+                  </div>
+                  <p className="mb-1">Car ID: {driver.carId}</p>
+                  <small className="text-muted">Model: {driver.model}</small>
+                </a>
               ))}
             </div>
           </div>
         )}
         {selectedItem === 'history' && (
           <div>
-          {/* <h2>Near Rides</h2> */}
-          <div className="cards-container">
-            {history.map(driver => (
-              <div key={history.driverId} className="card">
-                <h3>{driver.name}</h3>
-                <p><strong>Distance:</strong> {history.kilometer}</p>
-                <p><strong>Car ID:</strong> {history.driverId}</p>
-                <p><strong>endpoint:</strong> {history.model}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        )}
-        {selectedItem === 'settings' && (
-          <div>
-            <h2>Settings</h2>
-            <p>Here you can change your settings.</p>
+            <div className="list-group">
+              {history.map(item => (
+                <a
+                  key={item.driverId}
+                  href="#"
+                  className="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">{item.carId}</h5>
+                    <small className="text-muted">{item.kilometer} km</small>
+                  </div>
+                  <p className="mb-1">Price: {item.price}</p>
+                  <small className="text-muted">Endpoint: {item.model}</small>
+                </a>
+              ))}
+            </div>
           </div>
         )}
       </main>

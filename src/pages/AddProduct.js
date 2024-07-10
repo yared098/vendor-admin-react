@@ -39,11 +39,13 @@ const AddProductForm = ({ telegramId }) => {
 
     if (!telegramId) {
       setErrorMessage("Telegram ID is null. Cannot upload the product.");
+      console.error("Telegram ID is null. Cannot upload the product.");
       return;
     }
 
     if (!name || !price || !disc || !category) {
       setErrorMessage("Please fill in all required fields.");
+      console.error("Please fill in all required fields.");
       return;
     }
 
@@ -55,11 +57,13 @@ const AddProductForm = ({ telegramId }) => {
       owner: telegramId,
       approved: 0,
       link,
-      data_created: new Date().toString(),
+      data_created: new Date().toISOString(),
       category,
       lat: latitude || 0.00,
       lon: longitude || 0.00
     };
+
+    console.log("Submitting product data:", productData);
 
     fetch("https://negari.marketing/api/product/", {
       method: "POST",
@@ -68,30 +72,30 @@ const AddProductForm = ({ telegramId }) => {
       },
       body: JSON.stringify(productData),
     })
-    .then((response) => {
-      if (response.ok) {
-        console.log("Product created successfully");
-        setName("");
-        setPrice("");
-        setDisc("");
-        setImage("");
-        setCategory("All");
-        setLink("");
-        setErrorMessage("");
-        setLatitude(null);
-        setLongitude(null);
-        setUseLocation(false); // Reset the checkbox after submission
-      } else {
-        response.json().then(data => {
-          console.error("Failed to create product: ", data.message);
-          setErrorMessage("Failed to create product: " + data.message);
-        });
-      }
-    })
-    .catch((error) => {
-      console.error("Error creating product: ", error);
-      setErrorMessage("Error creating product: " + error.message);
-    });
+      .then((response) => {
+        if (response.ok) {
+          console.log("Product created successfully");
+          setName("");
+          setPrice("");
+          setDisc("");
+          setImage("");
+          setCategory("All");
+          setLink("");
+          setErrorMessage("");
+          setLatitude(null);
+          setLongitude(null);
+          setUseLocation(false); // Reset the checkbox after submission
+        } else {
+          response.json().then((data) => {
+            console.error("Failed to create product: ", data.message);
+            setErrorMessage("Failed to create product: " + data.message);
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error creating product: ", error);
+        setErrorMessage("Error creating product: " + error.message);
+      });
   };
 
   return (

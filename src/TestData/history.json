@@ -1,0 +1,83 @@
+[
+    {
+      "driverId": 1,
+      "kilometer": 15,
+      "price": 20.5,
+      "carId": "CAR001",
+      "start": "Central Park",
+      "end": "Times Square"
+    },
+    {
+      "driverId": 2,
+      "kilometer": 25,
+      "price": 35.0,
+      "carId": "CAR002",
+      "start": "Union Station",
+      "end": "Downtown"
+    },
+    {
+      "driverId": 3,
+      "kilometer": 10,
+      "price": 15.0,
+      "carId": "CAR003",
+      "start": "Museum of Art",
+      "end": "City Hall"
+    },
+    {
+      "driverId": 4,
+      "kilometer": 30,
+      "price": 40.0,
+      "carId": "CAR004",
+      "start": "Airport",
+      "end": "Hotel Plaza"
+    },
+    {
+      "driverId": 5,
+      "kilometer": 20,
+      "price": 28.5,
+      "carId": "CAR005",
+      "start": "Main Street",
+      "end": "Shopping Mall"
+    },
+    {
+      "driverId": 6,
+      "kilometer": 18,
+      "price": 25.0,
+      "carId": "CAR006",
+      "start": "Library",
+      "end": "University"
+    },
+    {
+      "driverId": 7,
+      "kilometer": 22,
+      "price": 30.0,
+      "carId": "CAR007",
+      "start": "Stadium",
+      "end": "Concert Hall"
+    },
+    {
+      "driverId": 8,
+      "kilometer": 12,
+      "price": 16.5,
+      "carId": "CAR008",
+      "start": "Beach",
+      "end": "Boardwalk"
+    },
+    {
+      "driverId": 9,
+      "kilometer": 28,
+      "price": 38.0,
+      "carId": "CAR009",
+      "start": "Tech Park",
+      "end": "Business Center"
+    },
+    {
+      "driverId": 10,
+      "kilometer": 16,
+      "price": 22.0,
+      "carId": "CAR010",
+      "start": "Residential Area",
+      "end": "Grocery Store"
+    }
+  ]
+  

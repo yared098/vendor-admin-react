@@ -1,6 +1,7 @@
-// src/Test.js
 import React, { useState } from 'react';
 import './Test.css'; // Don't forget to rename the corresponding CSS file
+import drivers from './TestData/drivers.json'; // Import drivers.json
+import history from "./TestData/history.json";
 
 function Test() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -21,56 +22,73 @@ function Test() {
 
   return (
     <div className="Test">
-      <header className="Test-header">
+      {/* <header className="Test-header">
         <h1>YeneRide</h1>
         {!isDrawerOpen && (
-          <button onClick={toggleDrawer}> Drawer</button>
+          <button onClick={toggleDrawer}>Open Drawer</button>
         )}
         {isDrawerOpen && (
-          <button onClick={closeDrawer} className="back-arrow">&#8592; Back</button>
+          <button onClick={closeDrawer} className="back-arrow">&#8592; Close</button>
         )}
-      </header>
+      </header> */}
       <aside className={`Test-drawer ${isDrawerOpen ? 'open' : ''}`}>
         <div className="Drawer-header">
-          <button onClick={closeDrawer} className="back-arrow">&#8592; Back</button>
-          {/* <h2>Si</h2> */}
+          <button onClick={closeDrawer} className="back-arrow">&#8592; Close</button>
         </div>
         <ul>
-          <li onClick={() => handleItemClick('item1')}>Item 1</li>
-          <li onClick={() => handleItemClick('item2')}>Item 2</li>
-          <li onClick={() => handleItemClick('item3')}>Item 3</li>
+          <li onClick={() => handleItemClick('profile')}>Profile</li>
+          <li onClick={() => handleItemClick('setting')}>Setting</li>
+          <li onClick={() => handleItemClick('help')}>Help</li>
         </ul>
       </aside>
       <main className="Test-main">
-        {selectedItem === 'item1' && (
-          <div>
-            <h2>Item 1 Content</h2>
-            <p>This is the content for Item 1.</p>
-          </div>
-        )}
-        {selectedItem === 'item2' && (
-          <div>
-            <h2>Item 2 Content</h2>
-            <p>This is the content for Item 2.</p>
-          </div>
-        )}
-        {selectedItem === 'item3' && (
-          <div>
-            <h2>Item 3 Content</h2>
-            <p>This is the content for Item 3.</p>
-          </div>
-        )}
-        {selectedItem === 'home' && (
-          <div>
-            <h2>Home</h2>
-            <p>Welcome to the Home page.</p>
-          </div>
-        )}
         {selectedItem === 'profile' && (
           <div>
-            <h2>Profile</h2>
-            <p>This is your profile.</p>
+            <h2>Profile Content</h2>
+            <p>This is the content for Profile.</p>
           </div>
+        )}
+        {selectedItem === 'setting' && (
+          <div>
+            <h2>Settings Content</h2>
+            <p>This is the content for Settings.</p>
+          </div>
+        )}
+        {selectedItem === 'help' && (
+          <div>
+            <h2>Help Content</h2>
+            <p>This is the content for Help.</p>
+          </div>
+        )}
+        {selectedItem === 'near' && (
+          <div>
+            {/* <h2>Near Rides</h2> */}
+            <div className="cards-container">
+              {drivers.map(driver => (
+                <div key={driver.driverId} className="card">
+                  <h3>{driver.name}</h3>
+                  <p><strong>Phone:</strong> {driver.phone}</p>
+                  <p><strong>Car ID:</strong> {driver.carId}</p>
+                  <p><strong>Model:</strong> {driver.model}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        {selectedItem === 'history' && (
+          <div>
+          {/* <h2>Near Rides</h2> */}
+          <div className="cards-container">
+            {history.map(driver => (
+              <div key={history.driverId} className="card">
+                <h3>{driver.name}</h3>
+                <p><strong>Distance:</strong> {history.kilometer}</p>
+                <p><strong>Car ID:</strong> {history.driverId}</p>
+                <p><strong>endpoint:</strong> {history.model}</p>
+              </div>
+            ))}
+          </div>
+        </div>
         )}
         {selectedItem === 'settings' && (
           <div>
@@ -80,8 +98,8 @@ function Test() {
         )}
       </main>
       <footer className="Test-footer">
-        <button onClick={() => handleItemClick('home')}>Home</button>
-        <button onClick={() => handleItemClick('profile')}>Profile</button>
+        <button onClick={() => handleItemClick('near')}>Near</button>
+        <button onClick={() => handleItemClick('history')}>History</button>
         <button onClick={() => handleItemClick('settings')}>Settings</button>
       </footer>
     </div>

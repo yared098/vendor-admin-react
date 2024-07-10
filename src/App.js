@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
+    // const userId = queryParams.get('userId');
     const userId = queryParams.get('userId');
     console.log(`User ID received from Telegram: ${userId}`);
     setTelegramId(userId);

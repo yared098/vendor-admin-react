@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../pages/forms.css";
 
 const AddProductForm = ({ telegramId }) => {
@@ -13,28 +13,33 @@ const AddProductForm = ({ telegramId }) => {
   const [longitude, setLongitude] = useState(null);
   const [useLocation, setUseLocation] = useState(false);
 
-  const getLocation = () => {
-    if (useLocation && navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-        },
-        (error) => {
-          console.error("Error retrieving location: ", error.message);
-          setErrorMessage("Error retrieving location. Please enable location services and try again.");
-        }
-      );
-    } else if (!navigator.geolocation) {
-      console.error("Geolocation is not supported by this browser.");
-      setErrorMessage("Geolocation is not supported by this browser.");
+  useEffect(() => {
+    if (useLocation) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+            setErrorMessage(""); // Clear any previous error messages
+          },
+          (error) => {
+            console.error("Error retrieving location: ", error.message);
+            setErrorMessage("Error retrieving location. Please enable location services and try again.");
+          }
+        );
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+        setErrorMessage("Geolocation is not supported by this browser.");
+      }
     }
-  };
+  }, [useLocation]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (useLocation) {
-      getLocation(); // Fetch location when the form is submitted, if permitted
+
+    if (!telegramId) {
+      setErrorMessage("Telegram ID is null. Cannot upload the product.");
+      return;
     }
 
     if (!name || !price || !disc || !category) {
@@ -52,8 +57,8 @@ const AddProductForm = ({ telegramId }) => {
       link,
       data_created: new Date().toString(),
       category,
-      lat: latitude ? latitude : 0.00,
-      lon: longitude ? longitude : 0.00
+      lat: latitude || 0.00,
+      lon: longitude || 0.00
     };
 
     fetch("https://negari.marketing/api/product/", {
@@ -91,6 +96,9 @@ const AddProductForm = ({ telegramId }) => {
 
   return (
     <form onSubmit={handleSubmit} style={{ backgroundColor: "var(--tg-theme-bg-color)" }}>
+      {telegramId === null && (
+        <p className="text-danger">Telegram user ID is null</p>
+      )}
       <div className="mb-3">
         <label htmlFor="useLocation">
           Use My Location
@@ -103,6 +111,12 @@ const AddProductForm = ({ telegramId }) => {
           />
         </label>
       </div>
+      {useLocation && latitude && longitude && (
+        <div className="mb-3">
+          <p>Latitude: {latitude}</p>
+          <p>Longitude: {longitude}</p>
+        </div>
+      )}
       <div className="mb-3">
         <label htmlFor="name" className="form-label">Name:</label>
         <input

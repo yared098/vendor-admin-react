@@ -57,7 +57,7 @@ const AddProductForm = ({ telegramId }) => {
       owner: telegramId,
       approved: 0,
       link,
-      date_created: new Date().toISOString(),
+      date_created: new Date().toString(),
       category,
       lat: latitude || 0.00,
       lon: longitude || 0.00

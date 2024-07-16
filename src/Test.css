@@ -1,0 +1,86 @@
+/* Test.css */
+.Test {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.Test-header {
+  background-color: #282c34;
+  color: white;
+  padding: 10px; /* Adjusted padding for smaller height */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Test-header h1 {
+  font-size: 20px; /* Smaller font size */
+  margin: 0; /* Remove margin */
+}
+
+.Test-header button {
+  padding: 5px 10px; /* Smaller button padding */
+  font-size: 14px; /* Smaller font size */
+}
+
+.back-arrow {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.Test-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  background-color: #f1f1f1;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.Test-drawer.open {
+  transform: translateX(0);
+}
+
+.Drawer-header {
+  background-color: #282c34;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.Test-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.Test-footer {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.btn {
+  margin-top: 10px;
+}

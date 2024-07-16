@@ -1,0 +1,52 @@
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* This makes sure it uses the full height of the viewport */
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Ensures all text is centered */
+    background-color: #f4f4f4; /* Light background for better readability */
+    color: #333; /* Dark text for contrast */
+    font-family: 'Arial', sans-serif; /* Ensures text is easy to read */
+}
+
+.contact-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px; /* Larger font size for headers */
+    color: #007bff; /* A gentle blue color for headings */
+}
+
+.contact-container p {
+    font-size: 16px;
+    line-height: 1.5; /* Makes text more readable by spacing out lines */
+    margin-bottom: 15px;
+}
+
+.contact-container h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: #de4f3f; /* Red color to highlight the urgency of action required */
+}
+
+/* You might want to add more styles based on additional elements or preferences */
+.contact-info {
+    margin-top: 30px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0; /* Small vertical margin for better spacing */
+    font-size: 16px; /* Consistent font size */
+}
+
+.contact-info a {
+    color: #007bff; /* Blue color for links for better visibility and design consistency */
+    text-decoration: none; /* Removes underline from links */
+}
+
+.contact-info a:hover, .contact-info a:focus {
+    text-decoration: underline; /* Adds underline on hover for better interactivity */
+}

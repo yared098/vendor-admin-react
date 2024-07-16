@@ -1,0 +1,73 @@
+[
+    {
+      "driverId": 1,
+      "name": "John Doe",
+      "phone": "123-456-7890",
+      "carId": "CAR001",
+      "model": "Toyota Camry"
+    },
+    {
+      "driverId": 2,
+      "name": "Jane Smith",
+      "phone": "123-456-7891",
+      "carId": "CAR002",
+      "model": "Honda Accord"
+    },
+    {
+      "driverId": 3,
+      "name": "Mike Johnson",
+      "phone": "123-456-7892",
+      "carId": "CAR003",
+      "model": "Ford Focus"
+    },
+    {
+      "driverId": 4,
+      "name": "Emily Davis",
+      "phone": "123-456-7893",
+      "carId": "CAR004",
+      "model": "Chevrolet Malibu"
+    },
+    {
+      "driverId": 5,
+      "name": "David Brown",
+      "phone": "123-456-7894",
+      "carId": "CAR005",
+      "model": "Nissan Altima"
+    },
+    {
+      "driverId": 6,
+      "name": "Sarah Wilson",
+      "phone": "123-456-7895",
+      "carId": "CAR006",
+      "model": "Hyundai Sonata"
+    },
+    {
+      "driverId": 7,
+      "name": "Chris Lee",
+      "phone": "123-456-7896",
+      "carId": "CAR007",
+      "model": "Volkswagen Passat"
+    },
+    {
+      "driverId": 8,
+      "name": "Jessica Martinez",
+      "phone": "123-456-7897",
+      "carId": "CAR008",
+      "model": "Subaru Legacy"
+    },
+    {
+      "driverId": 9,
+      "name": "Matthew Anderson",
+      "phone": "123-456-7898",
+      "carId": "CAR009",
+      "model": "Mazda6"
+    },
+    {
+      "driverId": 10,
+      "name": "Ashley Thomas",
+      "phone": "123-456-7899",
+      "carId": "CAR010",
+      "model": "Kia Optima"
+    }
+  ]
+  

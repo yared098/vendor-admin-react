@@ -1,13 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Test.css'; // Don't forget to rename the corresponding CSS file
 import drivers from './TestData/drivers.json'; // Import drivers.json
 import history from './TestData/history.json'; // Import history.json
 const tele = window.Telegram.WebApp;
 
 
+// Show and configure the main button
+tele.MainButton.setText('Submit')
+    .onClick(() => {
+        // Handle button click
+        alert('Main button clicked!');
+    })
+    .show();   
 function Test() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  useEffect(()=>{
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tele = window.Telegram.WebApp;
+      tele.ready();
+    }
+  })
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);

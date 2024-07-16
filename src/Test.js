@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './Test.css'; // Don't forget to rename the corresponding CSS file
 import drivers from './TestData/drivers.json'; // Import drivers.json
 import history from './TestData/history.json'; // Import history.json
+const tele = window.Telegram.WebApp;
+
 
 function Test() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

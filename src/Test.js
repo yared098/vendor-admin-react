@@ -7,9 +7,9 @@ function Test() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
+  // const toggleDrawer = () => {
+  //   setIsDrawerOpen(!isDrawerOpen);
+  // };
 
   const closeDrawer = () => {
     setIsDrawerOpen(false);

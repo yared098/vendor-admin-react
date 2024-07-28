@@ -22,7 +22,7 @@ function Test() {
 
   return (
     <div className="Test">
-      
+
       <aside className={`Test-drawer ${isDrawerOpen ? 'open' : ''}`}>
         <div className="Drawer-header">
           <button onClick={closeDrawer} className="back-arrow">&#8592; Close</button>
@@ -56,9 +56,8 @@ function Test() {
           <div>
             <div className="list-group">
               {drivers.map(driver => (
-                <a
+                <div
                   key={driver.driverId}
-                  href="#"
                   className="list-group-item list-group-item-action flex-column align-items-start"
                 >
                   <div className="d-flex w-100 justify-content-between">
@@ -67,11 +66,12 @@ function Test() {
                   </div>
                   <p className="mb-1">Car ID: {driver.carId}</p>
                   <small className="text-muted">Model: {driver.model}</small>
-                </a>
+                </div>
               ))}
             </div>
           </div>
         )}
+
         {selectedItem === 'history' && (
           <div>
             <div className="list-group">

@@ -102,6 +102,10 @@ import VendorRegisterForm from './pages/VendorRegisterForm';
 const tele = window.Telegram.WebApp;
 tele.MainButton.text = "Admin Dashboard";
 
+tele.MainButton.show().onClick(() => {
+  tele.MainButton.show();
+});
+
 function App() {
   const [telegramId, setTelegramId] = useState('');
   const [buttonStyle, setButtonStyle] = useState({});

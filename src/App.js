@@ -97,14 +97,17 @@ import ShowProducts from './pages/ShowProducts';
 import UpdateProductForm from './pages/UpdateProductForm';
 import VendorRegisterForm from './pages/VendorRegisterForm';
 
+// const tele = window.Telegram.WebApp;
+// tele.MainButton.title = "Phone ";
 const tele = window.Telegram.WebApp;
-tele.MainButton.title = "Phone ";
+tele.MainButton.text = "Admin Dashboard";
 
 function App() {
   const [telegramId, setTelegramId] = useState('');
   const [buttonStyle, setButtonStyle] = useState({});
 
   useEffect(() => {
+    tele.ready();
     const queryParams = new URLSearchParams(window.location.search);
     const userId = queryParams.get('userId');
     console.log(`User ID received from Telegram: ${userId}`);

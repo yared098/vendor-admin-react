@@ -40,19 +40,19 @@ function Test() {
             <p>This is the content for Profile.</p>
           </div>
         )}
-        {selectedItem === 'setting' && (
+        {selectedItem === 'setting1' && (
           <div>
             <h2>Settings Content</h2>
             <p>This is the content for Settings.</p>
           </div>
         )}
-        {selectedItem === 'help' && (
+        {selectedItem === 'help1' && (
           <div>
             <h2>Help Content</h2>
             <p>This is the content for Help.</p>
           </div>
         )}
-        {selectedItem === 'near' && (
+        {selectedItem === 'near1' && (
           <div>
             <div className="list-group">
               {drivers.map(driver => (

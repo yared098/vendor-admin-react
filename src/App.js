@@ -139,8 +139,10 @@ function App() {
         backgroundColor: 'var(--tg-theme-button-color)',
         borderTop: '1px solid #ddd',
         boxShadow: '0 -2px 4px rgba(0,0,0,0.1)',
-        padding: '10px 0',
-        zIndex: 1000
+        padding: '5px 0', // Reduced padding for smaller height
+        zIndex: 1000,
+        display: 'flex',
+        justifyContent: 'center', // Centering the navigation items
       }}>
         <ul style={{
           display: 'flex',
@@ -148,7 +150,8 @@ function App() {
           listStyle: 'none',
           padding: 0,
           margin: 0,
-          flexWrap: 'wrap'
+          width: '100%',
+          maxWidth: '500px', // Optional: Max width for better alignment
         }}>
           <li>
             <Link to="/add" className="nav-link">
@@ -156,9 +159,9 @@ function App() {
                 className={`nav-button ${activeButton === 'add' ? 'active' : ''}`}
                 onClick={() => handleButtonClick('add')}
                 style={{
-                  padding: '8px 12px',
-                  fontSize: '14px',
-                  borderRadius: '4px',
+                  padding: '6px 10px', // Smaller padding
+                  fontSize: '12px', // Smaller font size
+                  borderRadius: '3px', // Smaller border radius
                 }}
               >
                 Add
@@ -171,9 +174,9 @@ function App() {
                 className={`nav-button ${activeButton === 'products' ? 'active' : ''}`}
                 onClick={() => handleButtonClick('products')}
                 style={{
-                  padding: '8px 12px',
-                  fontSize: '14px',
-                  borderRadius: '4px',
+                  padding: '6px 10px',
+                  fontSize: '12px',
+                  borderRadius: '3px',
                 }}
               >
                 Products
@@ -186,9 +189,9 @@ function App() {
                 className={`nav-button ${activeButton === 'update' ? 'active' : ''}`}
                 onClick={() => handleButtonClick('update')}
                 style={{
-                  padding: '8px 12px',
-                  fontSize: '14px',
-                  borderRadius: '4px',
+                  padding: '6px 10px',
+                  fontSize: '12px',
+                  borderRadius: '3px',
                 }}
               >
                 Update
@@ -201,12 +204,12 @@ function App() {
                 className={`nav-button ${activeButton === 'register' ? 'active' : ''}`}
                 onClick={() => handleButtonClick('register')}
                 style={{
-                  padding: '8px 12px',
-                  fontSize: '14px',
-                  borderRadius: '4px',
+                  padding: '6px 10px',
+                  fontSize: '12px',
+                  borderRadius: '3px',
                 }}
               >
-                +
+                Profile
               </button>
             </Link>
           </li>

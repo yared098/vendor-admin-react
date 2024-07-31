@@ -6,10 +6,10 @@ const tele = window.Telegram.WebApp;
 
 tele.MainButton.title = "Phone ";
 
-function ShowProducts({telegramId}) {
+function ShowProducts({ telegramId }) {
   // this add new file 
   const [data, setData] = useState([]);
- 
+
   useEffect(() => {
     fetchData(telegramId);
   }, [telegramId]);
@@ -40,7 +40,7 @@ function ShowProducts({telegramId}) {
   };
   const refreshInterval = 30 * 1000; // 30 seconds
 
-   setInterval(fetchData, refreshInterval);
+  setInterval(fetchData, refreshInterval);
 
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
@@ -87,13 +87,13 @@ function ShowProducts({telegramId}) {
           })}
         </div> */}
         <div className="cafe-items" id="showpr">
-    {Array.isArray(data) ? data.map((food) => (
-        <Card1 food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
-    )) : <p>No products found.</p>}
-</div>
+          {Array.isArray(data) ? data.map((food) => (
+            <Card1 food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
+          )) : <p>No products found.</p>}
+        </div>
 
       </section>
-      
+
     </>
   );
 }

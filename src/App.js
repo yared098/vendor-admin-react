@@ -179,7 +179,7 @@ function App() {
         backgroundColor: 'var(--tg-theme-button-color)',
         borderTop: '1px solid #ddd',
         boxShadow: '0 -2px 4px rgba(0,0,0,0.1)',
-        padding: '0',
+        padding: '10px',
         zIndex: 1000,
         display: 'flex',
         justifyContent: 'center',

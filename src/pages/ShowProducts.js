@@ -2,11 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "../App.css";
 import Card1 from "../Components/Card/Card1";
-const tele = window.Telegram.WebApp;
+// const tele = window.Telegram.WebApp;
 
-tele.MainButton.title = "Phone ";
+// tele.MainButton.title = "Phone ";
 
-function ShowProducts({ telegramId }) {
+function ShowProducts({ telegramId ,tele}) {
   // this add new file 
   const [data, setData] = useState([]);
 
@@ -14,7 +14,9 @@ function ShowProducts({ telegramId }) {
     fetchData(telegramId);
   }, [telegramId]);
   
-  tele.MainButton.title = "Phone ";
+  
+  tele.MainButton.title = "Your products ";
+  tele.MainButton.show();
 
   const fetchData = async (telegram_id) => {
     try {

@@ -38,7 +38,7 @@ const VendorRegisterForm = ({ telegramId }) => {
     },
     {
       id: 6,
-      customerName: 'Michael Brown',
+      customerName: 'New customer',
       orderDetails: 'Order 6 details',
       orderStatus:true
     },
@@ -50,19 +50,19 @@ const VendorRegisterForm = ({ telegramId }) => {
     },
     {
       id: 8,
-      customerName: 'William Wilson',
+      customerName: 'New customer',
       orderDetails: 'Order 8 details',
       orderStatus:false
     },
     {
       id: 9,
-      customerName: 'Sophia Thompson',
+      customerName: 'New customer',
       orderDetails: 'Order 9 details',
       orderStatus:true
     },
     {
       id: 10,
-      customerName: 'James Taylor',
+      customerName: 'New customer',
       orderDetails: 'Order 10 details',
       orderStatus:true
     }
@@ -146,6 +146,7 @@ const VendorRegisterForm = ({ telegramId }) => {
       <div>
         <h2>Welcome to Ethio-24 Market</h2>
         <p>You have already registered .</p>
+        <p> Your public link {telegramId}</p>
         {/* Render the horizontal list continuously */}
         <div className="horizontal-list">
           {incomingOrders.map((order) => (
@@ -208,7 +209,7 @@ const VendorRegisterForm = ({ telegramId }) => {
       </label>
       <br />
       {/* Removed the input field for date_created */}
-      <button type="submit" className="btn btn-primary">Register</button>
+      <button   style={{backgroundColor:'green'}} type="submit" className="btn btn-primary">Register</button>
     </form>
   );
 };

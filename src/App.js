@@ -76,7 +76,7 @@ function App() {
         <Routes>
           <Route path="/add" element={<AddProduct telegramId={telegramId} />} />
           <Route path="/" element={<ShowProducts telegramId={telegramId} tele={tele} />} />
-          <Route path="/update" element={<UpdateProductForm />} />
+          <Route path="/update" element={<UpdateProductForm  />} />
           <Route path="/register" element={<VendorRegisterForm telegramId={telegramId} />} />
         </Routes>
       </div>

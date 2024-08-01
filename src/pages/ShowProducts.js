@@ -12,6 +12,7 @@ function ShowProducts({ telegramId ,tele}) {
 
   useEffect(() => {
     fetchData(telegramId);
+    
   }, [telegramId]);
   
   

@@ -13,6 +13,7 @@ function ShowProducts({ telegramId }) {
   useEffect(() => {
     fetchData(telegramId);
   }, [telegramId]);
+  
   tele.MainButton.title = "Phone ";
 
   const fetchData = async (telegram_id) => {
@@ -76,16 +77,7 @@ function ShowProducts({ telegramId }) {
     <>
       <section className="cafe-page cafe-items " id="section-1">
         <br></br>
-        {/* <Cart cartItems={cartItems} onCheckout={onCheckout} /> */}
-
-        {/* <div className="cafe-items" id="showpr">
-          {data.map((food) => {
-            return (
-              <Card1 food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
-            );
-
-          })}
-        </div> */}
+      
         <div className="cafe-items" id="showpr">
           {Array.isArray(data) ? data.map((food) => (
             <Card1 food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />

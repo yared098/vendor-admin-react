@@ -413,6 +413,7 @@ const AddProductForm = ({ telegramId }) => {
       <button style={{
         borderRadius:'100px',
         width:'100%',
+        backgroundColor:'green',
         // paddingLeft:'100px',
         textAlign:'center',
         height:'50px'

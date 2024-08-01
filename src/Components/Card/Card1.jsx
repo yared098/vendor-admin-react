@@ -22,8 +22,8 @@ function Card1({ food }) {
         {name}  <span className="card__price"> {price}</span>
       </h4>
 
-      <div className="cafe-item-buttons">
-        <Button title={"edit"} type={"edit"} onClick={handleEdited} />
+      <div  style={{ borderRadius:'20px',  color:"white" ,backgroundColor:'green',textAlign:'center'}} className="cafe-item-buttons">
+        <Button   style={{ borderRadius:'20px',backgroundColor:'green',textAlign:'center'}}title={"edit"} type={"edit"} onClick={handleEdited} />
       </div>
     </div>
   );

@@ -82,7 +82,7 @@ function App() {
       </div>
 
       <nav style={{
-        backgroundColor:'red',
+        // backgroundColor:'red',
         position: 'fixed',
         bottom: 0,
         width: '100%',

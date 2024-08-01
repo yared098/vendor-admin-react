@@ -118,11 +118,11 @@ const AddProductForm = ({ telegramId }) => {
   return (
     <form onSubmit={handleSubmit} style={{ backgroundColor: "var(--tg-theme-bg-color)" }}>
       {telegramId === null && (
-        <p className="text-danger">Telegram user ID is null</p>
+        <p className="text-danger">You cant upload your product</p>
       )}
       <div className="mb-3">
         <label htmlFor="useLocation">
-          Use My Location
+          Add current LOcation
           <input
             type="checkbox"
             id="useLocation"
@@ -134,8 +134,9 @@ const AddProductForm = ({ telegramId }) => {
       </div>
       {useLocation && latitude && longitude && (
         <div className="mb-3">
-          <p>Latitude: {latitude}</p>
-          <p>Longitude: {longitude}</p>
+          <p>Your products are available publicly.</p>
+          {/* <p>Latitude: {latitude}</p>
+          <p>Longitude: {longitude}</p> */}
         </div>
       )}
       <div className="mb-3">

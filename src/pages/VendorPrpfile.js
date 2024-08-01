@@ -95,6 +95,7 @@ const VendorRegisterForm = ({ telegramId }) => {
       <p>Telegram ID: {telegramId}</p>
         Company Name:
         <input
+         style={{borderRadius:'10px'}}
           type="text"
           value={companyName}
           onChange={(e) => setCompanyName(e.target.value)}
@@ -104,6 +105,7 @@ const VendorRegisterForm = ({ telegramId }) => {
       <label>
         Phone:
         <input
+         style={{borderRadius:'10px'}}
           type="text"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
@@ -113,6 +115,7 @@ const VendorRegisterForm = ({ telegramId }) => {
       <label>
         Email:
         <input
+         style={{borderRadius:'10px'}}
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -122,6 +125,7 @@ const VendorRegisterForm = ({ telegramId }) => {
       <label>
         Telegram ID:{ "-" +telegramId}
         <input
+         style={{borderRadius:'10px'}}
           type="text"
           value={telegram_id}
           onChange={(e) => setTelegram_id(e.target.value)}
@@ -131,6 +135,7 @@ const VendorRegisterForm = ({ telegramId }) => {
       <label>
         Post Limit:
         <input
+         style={{borderRadius:'10px'}}
           type="text"
           value={postLimit}
           onChange={(e) => setPostLimit(e.target.value)}
@@ -140,13 +145,14 @@ const VendorRegisterForm = ({ telegramId }) => {
       <label>
         Date Created:
         <input
+         style={{borderRadius:'10px'}}
           type="text"
           value={date_created}
           onChange={(e) => setDate_created(e.target.value)}
         />
       </label>
       <br />
-      <button type="submit" className="btn btn-primary">Register</button>
+      <button    style={{borderRadius:'10px', width :'100%'}} type="submit" className="btn btn-primary">Register</button>
     </form>
   );
 };

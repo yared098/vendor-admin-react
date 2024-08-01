@@ -111,6 +111,7 @@ const UpdateProductForm = ({ name, pricep }) => {
       <div className="mb-3">
         <label className="form-label">Product ID:</label>
         <input
+           style={{borderRadius:'10px'}}
           type="text"
           className="form-control"
           value={productId}
@@ -120,6 +121,7 @@ const UpdateProductForm = ({ name, pricep }) => {
       <div className="mb-3">
         <label className="form-label">Product Name:</label>
         <input
+          style={{borderRadius:'10px'}}
           type="text"
           className="form-control"
           value={productName}
@@ -129,6 +131,7 @@ const UpdateProductForm = ({ name, pricep }) => {
       <div className="mb-3">
         <label className="form-label">Price:</label>
         <input
+           style={{borderRadius:'10px'}}
           type="number"
           className="form-control"
           value={price}
@@ -138,6 +141,7 @@ const UpdateProductForm = ({ name, pricep }) => {
       <div className="mb-3">
         <label className="form-label">Description:</label>
         <input
+          style={{borderRadius:'10px'}}
           type="text"
           className="form-control"
           value={discount}
@@ -151,9 +155,9 @@ const UpdateProductForm = ({ name, pricep }) => {
         </div>
       </div> */}
       <div>
-        <button  style={{ borderRadius:'10px' , height:'50px' ,backgroundColor:'green'}} type="submit" className="btn btn-primary">Update Product</button>
+        <button  style={{ borderRadius:'10px' , height:'50px' , width:'100%' ,backgroundColor:'green'}} type="submit" className="btn btn-primary">Update Product</button>
         <hr></hr>
-        <button style={{ borderRadius:'10px' , height:'50px', backgroundColor:'red'}} type="button" className="btn btn-danger" onClick={handleDelete}>Delete Product</button>
+        <button style={{ borderRadius:'10px' , height:'50px',width:'100%', backgroundColor:'red'}} type="button" className="btn btn-danger" onClick={handleDelete}>Delete Product</button>
       </div>
     </form>
   );

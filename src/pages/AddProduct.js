@@ -412,8 +412,8 @@ const AddProductForm = ({ telegramId }) => {
       {errorMessage && <p className="text-danger">{errorMessage}</p>}
       <button style={{
         borderRadius:'100px',
-        // width:'90%',
-        paddingLeft:'100px',
+        width:'100%',
+        // paddingLeft:'100px',
         textAlign:'center',
         height:'50px'
       }} type="submit" className="btn btn-primary">

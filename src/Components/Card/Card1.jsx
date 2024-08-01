@@ -15,7 +15,8 @@ function Card1({ food }) {
   return (
     <div className="cafe-item js-item">
       <div className="image__container">
-        <img src={image} alt={""} />
+       
+        <img src={`https://negari.marketing/uploads/${image}`} alt={""} />
       </div>
       <h4 className="card__title">
         {name}  <span className="card__price"> {price}</span>

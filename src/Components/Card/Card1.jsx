@@ -9,7 +9,7 @@ function Card1({ food }) {
 
   const handleEdited = () => {
     // Redirect to the update page and pass parameters
-    navigate(`/update?name=${name}&price=${price}&id=${id}&image=${image}&disc=${disc}`);
+    navigate(`/update?name=${name}&price=${price}&id=${id}&image=${`https://negari.marketing/uploads/${image}`}&disc=${disc}`);
   };
 
   return (

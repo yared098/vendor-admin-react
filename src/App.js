@@ -185,7 +185,7 @@ function App() {
        
         zIndex: 1000,
         display: 'flex',
-        
+        flexDirection:'row',
         justifyContent: 'center',
         alignItems: 'center', // Center items vertically
       }}>

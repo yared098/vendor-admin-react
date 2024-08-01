@@ -96,6 +96,18 @@ const UpdateProductForm = ({ name, pricep }) => {
 
   return (
     <form onSubmit={handleFormSubmit} style={{ backgroundColor: 'var(--tg-theme-bg-color)' }}>
+
+    <div className="mb-3">
+      <label className="form-label">Product Logo/Image</label>
+      <div className="image__container">
+        <img 
+          style={{ width: '200px', height: '150px', objectFit: 'cover' }} 
+          src={Image} 
+          alt="Product"
+        />
+      </div>
+    </div>
+
       <div className="mb-3">
         <label className="form-label">Product ID:</label>
         <input
@@ -124,7 +136,7 @@ const UpdateProductForm = ({ name, pricep }) => {
         />
       </div>
       <div className="mb-3">
-        <label className="form-label">Disc...:</label>
+        <label className="form-label">Description:</label>
         <input
           type="text"
           className="form-control"
@@ -132,16 +144,16 @@ const UpdateProductForm = ({ name, pricep }) => {
           onChange={(e) => setDiscount(e.target.value)}
         />
       </div>
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label className="form-label">Product Image:</label>
         <div className="image__container">
-          <img src={Image} alt="" />
+          <img  style={{ width:'100%'}} src={Image} alt="" />
         </div>
-      </div>
+      </div> */}
       <div>
-        <button type="submit" className="btn btn-primary">Update Product</button>
+        <button  style={{ borderRadius:'10px' , height:'50px' ,backgroundColor:'green'}} type="submit" className="btn btn-primary">Update Product</button>
         <hr></hr>
-        <button type="button" className="btn btn-danger" onClick={handleDelete}>Delete Product</button>
+        <button style={{ borderRadius:'10px' , height:'50px', backgroundColor:'red'}} type="button" className="btn btn-danger" onClick={handleDelete}>Delete Product</button>
       </div>
     </form>
   );

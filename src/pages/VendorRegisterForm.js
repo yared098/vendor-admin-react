@@ -7,20 +7,20 @@ const VendorRegisterForm = ({ telegramId }) => {
    const incomingOrders = [
     {
       id: 1,
-      customerName: 'John Doe',
+      customerName: 'Yared Fentahun',
       orderDetails: 'Order 1 details',
       orderStatus:false
     },
     {
       id: 2,
-      customerName: 'Jane Smith',
+      customerName: 'Dessalegn Fentahun',
       orderDetails: 'Order 2 details',
       orderStatus:false
     },
     // Add more objects as needed
     {
       id: 3,
-      customerName: 'Alice Johnson',
+      customerName: 'New customer',
       orderDetails: 'Order 3 details',
       orderStatus:true
     },

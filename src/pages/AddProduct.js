@@ -228,6 +228,8 @@ const AddProductForm = ({ telegramId }) => {
             setErrorMessage(""); // Clear any previous error messages
           },
           (error) => {
+            setLatitude(0.00);
+            setLongitude(0.00)
             console.error("Error retrieving location: ", error.message);
             setErrorMessage("Error retrieving location. Please enable location services and try again.");
           }
@@ -408,7 +410,13 @@ const AddProductForm = ({ telegramId }) => {
         />
       </div>
       {errorMessage && <p className="text-danger">{errorMessage}</p>}
-      <button type="submit" className="btn btn-primary">
+      <button style={{
+        borderRadius:'100px',
+        // width:'90%',
+        paddingLeft:'100px',
+        textAlign:'center',
+        height:'50px'
+      }} type="submit" className="btn btn-primary">
         Add Product
       </button>
     </form>

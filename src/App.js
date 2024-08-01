@@ -100,9 +100,10 @@ function App() {
           // backgroundColor:'green',
           backgroundColor: 'var(--tg-theme-button-color)',
           display: 'flex',
+          
           justifyContent: 'space-around',
           listStyle: 'none',
-          padding: '2px',
+          // padding: '2px',
           margin: '0',
           // borderRadius:'20px',
           width: '100%',
@@ -116,8 +117,9 @@ function App() {
                 onClick={() => handleButtonClick('add')}
                 style={{
                   ...buttonStyle,
-                  borderRadius: '4px',
+                  borderRadius: '10px',
                   border: 'none',
+                  textAlign:'center',
                   backgroundColor: '#fff',
                   color: '#333',
                   cursor: 'pointer',
@@ -135,7 +137,7 @@ function App() {
                 onClick={() => handleButtonClick('products')}
                 style={{
                   ...buttonStyle,
-                  borderRadius: '4px',
+                  borderRadius: '10px',
                   border: 'none',
                   backgroundColor: '#fff',
                   color: '#333',
@@ -154,9 +156,9 @@ function App() {
                 onClick={() => handleButtonClick('update')}
                 style={{
                   ...buttonStyle,
-                  borderRadius: '4px',
+                  borderRadius: '10px',
                   border: 'none',
-                  backgroundColor: '#fff',
+                  backgroundColor: 'white',
                   color: '#333',
                   cursor: 'pointer',
                   transition: 'background-color 0.3s, color 0.3s',
@@ -173,7 +175,7 @@ function App() {
                 onClick={() => handleButtonClick('register')}
                 style={{
                   ...buttonStyle,
-                  borderRadius: '4px',
+                  borderRadius: '10px',
                   border: 'none',
                   backgroundColor: '#fff',
                   color: '#333',

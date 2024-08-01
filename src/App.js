@@ -97,7 +97,8 @@ function App() {
         alignItems: 'center', // Center items vertically
       }}>
         <ul style={{
-          backgroundColor:'green',
+          // backgroundColor:'green',
+          backgroundColor: 'var(--tg-theme-button-color)',
           display: 'flex',
           justifyContent: 'space-around',
           listStyle: 'none',

@@ -49,27 +49,27 @@ function ShowProducts({ telegramId ,tele}) {
   useEffect(() => {
   }, []);
 
-  const onAdd = (food) => {
-    const exist = cartItems.find((x) => x.id === food.id);
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
       setCartItems((prevCartItems) =>
         prevCartItems.map((x) =>
-          x.id === food.id ? { ...exist, quantity: exist.quantity + 1 } : x
+          x.id === product.id ? { ...exist, quantity: exist.quantity + 1 } : x
         )
       );
     } else {
-      setCartItems((prevCartItems) => [...prevCartItems, { ...food, quantity: 1 }]);
+      setCartItems((prevCartItems) => [...prevCartItems, { ...product, quantity: 1 }]);
     }
   };
 
-  const onRemove = (food) => {
-    const exist = cartItems.find((x) => x.id === food.id);
+  const onRemove = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
     if (exist.quantity === 1) {
-      setCartItems((prevCartItems) => prevCartItems.filter((x) => x.id !== food.id));
+      setCartItems((prevCartItems) => prevCartItems.filter((x) => x.id !== product.id));
     } else {
       setCartItems((prevCartItems) =>
         prevCartItems.map((x) =>
-          x.id === food.id ? { ...exist, quantity: exist.quantity - 1 } : x
+          x.id === product.id ? { ...exist, quantity: exist.quantity - 1 } : x
         )
       );
     }
@@ -81,8 +81,8 @@ function ShowProducts({ telegramId ,tele}) {
         <br></br>
       
         <div className="cafe-items" id="showpr">
-          {Array.isArray(data) ? data.map((food) => (
-            <Card1 food={food} key={food.id} onAdd={onAdd} onRemove={onRemove}  tele={tele}/>
+          {Array.isArray(data) ? data.map((product) => (
+            <Card1 product={product} key={product.id} onAdd={onAdd} onRemove={onRemove}  tele={tele}/>
           )) : <p>No products found.</p>}
         </div>
 

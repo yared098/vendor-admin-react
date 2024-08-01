@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import "../pages/forms.css";
+import { useNavigate } from "react-router-dom";
+
 
 const UpdateProductForm = ({ name, pricep }) => {
   const [productName, setProductName] = useState('');
@@ -8,6 +10,7 @@ const UpdateProductForm = ({ name, pricep }) => {
   const [price, setPrice] = useState('');
   const [Image, setImage] = useState('');
   const [discount, setDiscount] = useState('');
+  const navigate = useNavigate();
 
   const location = useLocation();
 
@@ -66,6 +69,7 @@ const UpdateProductForm = ({ name, pricep }) => {
     setProductName('');
     setPrice('');
     setDiscount('');
+    navigate('/')
   };
 
   const handleDelete = async () => {
@@ -92,6 +96,8 @@ const UpdateProductForm = ({ name, pricep }) => {
     setProductName('');
     setPrice('');
     setDiscount('');
+    navigate('/')
+    
   };
 
   return (
@@ -99,9 +105,10 @@ const UpdateProductForm = ({ name, pricep }) => {
 
     <div className="mb-3">
       <label className="form-label">Product Logo/Image</label>
-      <div className="image__container">
+      <div className="image__container" style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
+          >
         <img 
-          style={{ width: '200px', height: '150px', objectFit: 'cover' }} 
+          style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
           src={Image} 
           alt="Product"
         />

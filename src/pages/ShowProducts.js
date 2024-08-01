@@ -77,12 +77,12 @@ function ShowProducts({ telegramId ,tele}) {
 
   return (
     <>
-      <section className="cafe-page cafe-items " id="section-1">
+      <section className="cafe-page cafe-items" id="section-1">
         <br></br>
       
         <div className="cafe-items" id="showpr">
           {Array.isArray(data) ? data.map((food) => (
-            <Card1 food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
+            <Card1 food={food} key={food.id} onAdd={onAdd} onRemove={onRemove}  tele={tele}/>
           )) : <p>No products found.</p>}
         </div>
 

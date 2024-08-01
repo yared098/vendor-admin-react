@@ -82,11 +82,12 @@ function App() {
       </div>
 
       <nav style={{
+        backgroundColor:'red',
         position: 'fixed',
         bottom: 0,
         width: '100%',
         backgroundColor: 'var(--tg-theme-button-color)',
-        borderTop: '1px solid #ddd',
+        // borderTop: '1px solid #ddd',
         boxShadow: '0 -2px 4px rgba(0,0,0,0.1)',
         padding: '1px',
         zIndex: 1000,
@@ -96,14 +97,16 @@ function App() {
         alignItems: 'center', // Center items vertically
       }}>
         <ul style={{
+          backgroundColor:'green',
           display: 'flex',
           justifyContent: 'space-around',
           listStyle: 'none',
-          padding: '0',
+          padding: '2px',
           margin: '0',
+          // borderRadius:'20px',
           width: '100%',
           maxWidth: '600px', // Adjust as needed
-          boxSizing: 'border-box', // Ensure padding and border are included in width
+          // boxSizing: 'border-box', // Ensure padding and border are included in width
         }}>
           <li>
             <Link to="/add" className="nav-link">

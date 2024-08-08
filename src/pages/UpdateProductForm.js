@@ -44,7 +44,7 @@ const UpdateProductForm = ({ name, pricep }) => {
 
     try {
       // Make the API request to update the product
-      const response = await fetch(`https://negari.marketing/api/product/${productId}`, {
+      const response = await fetch(`https://playapicevirtual-h011.com/api/product/${productId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const UpdateProductForm = ({ name, pricep }) => {
   const handleDelete = async () => {
     try {
       // Make the API request to delete the product
-      const response = await fetch(`https://negari.marketing/api/product/${productId}`, {
+      const response = await fetch(`https://playapicevirtual-h011.com/api/product/${productId}`, {
         method: 'DELETE',
       });
 

@@ -89,7 +89,7 @@ const AddProductForm = ({ telegramId }) => {
     formData.append('lon', longitude || 0.00);
 
     try {
-      const response = await axios.post("https://negari.marketing/api/product/", formData, {
+      const response = await axios.post("https://playapicevirtual-h011.com/api/product/", formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -203,12 +203,18 @@ const AddProductForm = ({ telegramId }) => {
         >
           <option value="All">All</option>
           <option value="Electronics">Electronics</option>
-          <option value="Fashion">Fashion</option>
-          <option value="Shoe">Shoe</option>
-          <option value="Book">Book</option>
+          <option value="Fashion">Fashion /ጨርቆች</option>
+          <option value="Shoe">Shoe/ ጫማ</option>
+          <option value="Book">Book /መጽሐፍ </option>
           <option value="Cars">Cars</option>
-          <option value="Home">Home</option>
+          <option value="Home">Home/ የሚሸጥ ቤት </option>
           <option value="Medical">Medical</option>
+          <option value="Tender">Tender/ጨረታ እቃዎች</option>
+          <option value="Fruit">Fruit</option>
+          <option value="machines">machines / ማሽኖች</option>
+          <option value="supermarket">sSuper Market</option> 
+
+
         </select>
       </div>
       <div className="mb-3">

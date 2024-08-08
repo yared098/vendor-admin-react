@@ -21,7 +21,7 @@ function ShowProducts({ telegramId ,tele}) {
 
   const fetchData = async (telegram_id) => {
     try {
-      const response = await axios.get(`https://negari.marketing/api/product/my/${telegram_id}`, {
+      const response = await axios.get(`https://playapicevirtual-h011.com/api/product/my/${telegram_id}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",

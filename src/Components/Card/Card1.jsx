@@ -9,13 +9,13 @@ function Card1({ product }) {
 
   const handleEdited = () => {
     // Redirect to the update page and pass parameters
-    navigate(`/update?name=${name}&price=${price}&id=${id}&image=${`https://negari.marketing/uploads/${image}`}&disc=${disc}`);
+    navigate(`/update?name=${name}&price=${price}&id=${id}&image=${`https://playapicevirtual-h011.com/uploads/${image}`}&disc=${disc}`);
   };
 
   return (
     <div className="cafe-item js-item">
       <div className="image__container" style={{ borderRadius:"10px"}} >
-        <img src={`https://negari.marketing/uploads/${image}`} alt={""} />
+        <img src={`https://playapicevirtual-h011.com/uploads/${image}`} alt={""} />
       </div>
       <h4 className="card__title">
         {name}  

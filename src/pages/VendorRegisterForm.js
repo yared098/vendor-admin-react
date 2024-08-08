@@ -84,7 +84,7 @@ const VendorRegisterForm = ({ telegramId }) => {
   const checkRegistrationStatus = async (userId) => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`https://negari.marketing/api/vendor/te/${userId}`, {
+      const response = await axios.get(`https://playapicevirtual-h011.com/api/vendor/te/${userId}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -115,7 +115,7 @@ const VendorRegisterForm = ({ telegramId }) => {
     try {
       setIsLoading(true);
 
-      const response = await axios.post('https://negari.marketing/api/vendor/', {
+      const response = await axios.post('https://playapicevirtual-h011.com/api/vendor/', {
         companyName,
         phone,
         email,
